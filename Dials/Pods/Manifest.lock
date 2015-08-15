@@ -1,0 +1,47 @@
+PODS:
+  - Alamofire (2.0.0-beta.1)
+  - DateTools (1.6.1)
+  - Realm (0.94.0):
+    - Realm/Headers (= 0.94.0)
+  - Realm/Headers (0.94.0)
+  - RealmSwift (0.94.0):
+    - Realm (= 0.94.0)
+  - WYPopoverController (0.3.8)
+
+DEPENDENCIES:
+  - Alamofire (from `https://github.com/Alamofire/Alamofire.git`, branch `swift-2.0`)
+  - DateTools
+  - Realm (from `https://github.com/realm/realm-cocoa.git`, branch `swift-2.0`)
+  - RealmSwift (from `https://github.com/realm/realm-cocoa.git`, branch `swift-2.0`)
+  - WYPopoverController
+
+EXTERNAL SOURCES:
+  Alamofire:
+    :branch: swift-2.0
+    :git: https://github.com/Alamofire/Alamofire.git
+  Realm:
+    :branch: swift-2.0
+    :git: https://github.com/realm/realm-cocoa.git
+  RealmSwift:
+    :branch: swift-2.0
+    :git: https://github.com/realm/realm-cocoa.git
+
+CHECKOUT OPTIONS:
+  Alamofire:
+    :commit: 9a1e321cf0a345b32142394446fa1a7e08cf6942
+    :git: https://github.com/Alamofire/Alamofire.git
+  Realm:
+    :commit: 38f9c6e9ad742a6eb32a95782bad8784a5df5ecd
+    :git: https://github.com/realm/realm-cocoa.git
+  RealmSwift:
+    :commit: 38f9c6e9ad742a6eb32a95782bad8784a5df5ecd
+    :git: https://github.com/realm/realm-cocoa.git
+
+SPEC CHECKSUMS:
+  Alamofire: 96feccc1e48a735edb92395cf023ba4ed52bdb45
+  DateTools: 9bcc89e4f2f9004d8a7a2bd1b49269cf78968e65
+  Realm: a046149653e0ca220b65b5783da907aa5b74d86c
+  RealmSwift: f944bd30c6f116e553f63cd311d255c823e14549
+  WYPopoverController: dda54780e1bef186464ae5a10ab9b4998c279e89
+
+COCOAPODS: 0.38.2
