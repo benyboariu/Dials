@@ -63,7 +63,7 @@ class ViewController: UIViewController, DSDialViewDelegate {
     func checkVersion() {
         let dsSyncManger            = DSSyncManager()
         
-        if dsSyncManger.canRunVersion1("2") {
+        if dsSyncManger.canRunVersion("1") {
             print("TRUE", appendNewline: true)
         }
         else {

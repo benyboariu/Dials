@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import DialsSyncManager
 
 class DSEmailAuthVC: DSBaseVC, UITextFieldDelegate {
     
@@ -30,6 +31,8 @@ class DSEmailAuthVC: DSBaseVC, UITextFieldDelegate {
     @IBOutlet var viewLineBorderUp: UIView!
     @IBOutlet var viewLineBorderMiddle: UIView!
     @IBOutlet var viewLineBorderBottom: UIView!
+    
+    let dsSyncManager               = DSSyncManager()
     
     // MARK: - ViewController Methods
     override func viewDidLoad() {
@@ -130,7 +133,19 @@ class DSEmailAuthVC: DSBaseVC, UITextFieldDelegate {
     }
     
     func login_APICall() {
-        let dictParameters              = [
+        dsSyncManager.loginWithEmailAndPass("local", email: self.txfUsername.text!, password: self.txfPassword.text!) { (success, error, JSON) -> Void in
+            if success {
+                self.pushToPhoneVerification()
+            }
+            else {
+                let alert = DSUtils.okAlert(error)
+                
+                self.presentViewController(alert, animated: true, completion: { () -> Void in
+                })
+            }
+        }
+        
+        /*let dictParameters              = [
             "network": "local",
             "email": self.txfUsername.text!,
             "password": self.txfPassword.text!
@@ -155,7 +170,7 @@ class DSEmailAuthVC: DSBaseVC, UITextFieldDelegate {
                     }
                 }
                 
-            })
+            })*/
     }
     
     // MARK: - Action Methods

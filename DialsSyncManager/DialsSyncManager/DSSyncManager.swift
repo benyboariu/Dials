@@ -7,10 +7,15 @@
 //
 
 import Foundation
+import Alamofire
 
 public class DSSyncManager {
+    
+    //>     Creating an Instance of the Alamofire Manager
+    var manager = Alamofire.Manager.sharedInstance
+    
     public init() {
-        
+        setupAlamofireManager()
     }
     
     public func canRunVersion(strVersion: String) -> Bool {
@@ -21,13 +26,52 @@ public class DSSyncManager {
             return false
         }
     }
+        
+    public func loginWithEmailAndPass(network: String, email: String, password: String, completion: (success: Bool, error: String?, JSON: AnyObject?) -> Void) {
+        let dictParameters              = [
+            "network": network,
+            "email": email,
+            "password": password
+        ]
+        
+        let strURL                      = "https://calendar-api.dialsapp.com/api/login"
+        
+        self.manager
+            .request(.POST, strURL, parameters: dictParameters, encoding: .JSON)
+            .responseJSON(completionHandler: { (request, response, JSON) -> Void in
+                print(JSON.value, appendNewline: true)
+                
+                if let strResponse = JSON.value as? [String: AnyObject] {
+                    if strResponse["active"] == nil {
+                        if let strError = strResponse["err"] as? String {
+                            completion(success: false, error: strError, JSON: nil)
+                        }
+                        else {
+                            completion(success: false, error: nil, JSON: nil)
+                        }
+                        //let alert = DSUtils.okAlert(strResponse["err"] as? String)
+                        //self.presentViewController(alert, animated: true, completion: { () -> Void in
+                        //})
+                    }
+                    else {
+                        completion(success: true, error: nil, JSON: JSON.value!)
+                        //self.pushToPhoneVerification()
+                    }
+                }
+                
+            })
+    }
     
-    public func canRunVersion1(strVersion: String) -> Bool {
-        if strVersion == "1" {
-            return true
-        }
-        else {
-            return false
-        }
+    // MARK: - Private Methods
+    
+    func setupAlamofireManager() {
+        var defaultHeaders                  = Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders ?? [:]
+        defaultHeaders["Content-Type"]      = "application/json"
+        defaultHeaders["Accept"]            = "application/vnd.dials.v1+json"
+        
+        let configuration                   = NSURLSessionConfiguration.defaultSessionConfiguration()
+        configuration.HTTPAdditionalHeaders = defaultHeaders
+        
+        self.manager                        = Alamofire.Manager(configuration: configuration)
     }
 }

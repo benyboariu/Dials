@@ -10,7 +10,7 @@ import UIKit
 
 class DSLandingVC: UIViewController {
     
-    var user  = false
+    var user  = true
     
     // MARK: - ViewController Methods
     override func viewDidLoad() {
