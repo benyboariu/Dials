@@ -8,6 +8,7 @@
 
 import UIKit
 import QuartzCore
+import RealmSwift
 
 protocol DSDialViewDelegate {
     func didChangeTimeForEvent(event: Event)
@@ -88,8 +89,10 @@ class DSDialView: UIView, DSDialEventViewDelegate {
     }
     
     func saveEventNewTimes(event: Event) {
-        event.e_startDate               = self.newStartDate
-        event.e_endDate                 = self.newEndDate
+        appDelegate.realm.write { () -> Void in
+            event.e_startDate           = self.newStartDate
+            event.e_endDate             = self.newEndDate
+        }
         
         print("New Start: \(event.e_startDate)", appendNewline: true)
         print("New End: \(event.e_endDate)", appendNewline: true)

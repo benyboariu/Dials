@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,9 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //>     Creating an Instance of the Alamofire Manager
     var manager = Alamofire.Manager.sharedInstance
+    
+    var realm: Realm!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.setupAlamofireManager()
+        
+        self.realm      = try! Realm()
+
+        // Easily see where the realm database is located so we can open it with the Realm Browser
+        print(self.realm.path, appendNewline: true)
         
         return true
     }

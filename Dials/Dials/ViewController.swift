@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController, DSDialViewDelegate {
-    @IBOutlet weak var viewDial: DSDialView?
+    @IBOutlet weak var viewDial: DSDialView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewDial?.delegate      = self
+        viewDial.delegate       = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -24,21 +25,36 @@ class ViewController: UIViewController, DSDialViewDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        viewDial?.buildDial()
+        viewDial.buildDial()
         
         self.loadData()
     }
     
     func loadData() {
-        let event               = Event()
-        event.e_id              = "1"
-        event.e_summarry        = "Test"
+        let predicate               = NSPredicate(format: "e_id = %@", "1")
+        let eventOld                = appDelegate.realm.objects(Event).filter(predicate).first
         
-        let date                = DSUtils.getUtilDate()
-        event.e_startDate       = date
-        event.e_endDate         = date.dateByAddingTimeInterval(3600)
+        if let event = eventOld {
+            viewDial.showEvents([event])
+        }
+        else {
+            let event               = Event()
+            event.e_id              = "1"
+            event.e_summarry        = "Test"
+            
+            let date                = DSUtils.getUtilDate()
+            event.e_startDate       = date
+            event.e_endDate         = date.dateByAddingTimeInterval(3600)
+            
+            appDelegate.realm.write { () -> Void in
+                appDelegate.realm.add(event, update: true)
+            }
+            
+            viewDial.showEvents([event])
+        }
         
-        viewDial?.showEvents([event])
+        
+        //viewDial.showEvents(arrEvents)
     }
     
     // MARK: - DSDialViewDelegate Methods
@@ -46,14 +62,14 @@ class ViewController: UIViewController, DSDialViewDelegate {
     func didChangeTimeForEvent(event: Event) {
         let alertController                 = UIAlertController(title: "Event changed", message: "Save changes?", preferredStyle: .Alert)
         let actionCancel                    = UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in
-            self.viewDial?.resetDialEventViewStartPosition(event)
-            self.viewDial?.deselectEvent()
+            self.viewDial.resetDialEventViewStartPosition(event)
+            self.viewDial.deselectEvent()
         })
         
         alertController.addAction(actionCancel)
         
         let actionOk                        = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-            self.viewDial?.saveEventNewTimes(event)
+            self.viewDial.saveEventNewTimes(event)
         })
         
         alertController.addAction(actionOk)

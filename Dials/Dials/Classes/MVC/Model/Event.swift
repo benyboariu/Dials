@@ -21,6 +21,10 @@ class Event: Object {
     dynamic var e_endDate = NSDate()
     var e_type = EventType.kEventTypeTask
     
+    override static func primaryKey() -> String? {
+        return "e_id"
+    }
+    
 // Specify properties to ignore (Realm won't persist these)
     
 //  override static func ignoredProperties() -> [String] {
