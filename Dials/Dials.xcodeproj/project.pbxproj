@@ -38,6 +38,8 @@
 		B71D5A211B78C94400B7EDE4 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71D5A1D1B78C94400B7EDE4 /* UIView+Utils.swift */; };
 		B71D5A231B78C95100B7EDE4 /* DSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71D5A221B78C95100B7EDE4 /* DSUtils.swift */; };
 		B745F6151B78F2D700815493 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B745F6141B78F2D700815493 /* Constants.swift */; };
+		B750E3F51B820A600026189D /* DialsSyncManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B750E3F21B820A580026189D /* DialsSyncManager.framework */; };
+		B750E3F61B820A600026189D /* DialsSyncManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B750E3F21B820A580026189D /* DialsSyncManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B78C67101B7A85EA005FE5E3 /* DSTimerHandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C670F1B7A85EA005FE5E3 /* DSTimerHandView.swift */; };
 		B7F4AF021B7FD95D0026D1B9 /* Countries.json in Resources */ = {isa = PBXBuildFile; fileRef = B7F4AEFA1B7FD95D0026D1B9 /* Countries.json */; };
 		B7F4AF031B7FD95D0026D1B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7F4AEFC1B7FD95D0026D1B9 /* LaunchScreen.storyboard */; };
@@ -71,7 +73,42 @@
 			remoteGlobalIDString = B70F166D1B768652001263A8;
 			remoteInfo = Dials;
 		};
+		B750E3F11B820A580026189D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B750E3EC1B820A580026189D /* DialsSyncManager.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B77C0D971B81E8BD00038279;
+			remoteInfo = DialsSyncManager;
+		};
+		B750E3F31B820A580026189D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B750E3EC1B820A580026189D /* DialsSyncManager.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B77C0DA11B81E8BD00038279;
+			remoteInfo = DialsSyncManagerTests;
+		};
+		B750E3F71B820A600026189D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B750E3EC1B820A580026189D /* DialsSyncManager.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B77C0D961B81E8BD00038279;
+			remoteInfo = DialsSyncManager;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B750E3D51B8209030026189D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B750E3F61B820A600026189D /* DialsSyncManager.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		189C7747A09F9C3908B332FE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +154,7 @@
 		B71D5A1D1B78C94400B7EDE4 /* UIView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 		B71D5A221B78C95100B7EDE4 /* DSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSUtils.swift; sourceTree = "<group>"; };
 		B745F6141B78F2D700815493 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B750E3EC1B820A580026189D /* DialsSyncManager.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DialsSyncManager.xcodeproj; path = ../DialsSyncManager/DialsSyncManager.xcodeproj; sourceTree = "<group>"; };
 		B78C670F1B7A85EA005FE5E3 /* DSTimerHandView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSTimerHandView.swift; sourceTree = "<group>"; };
 		B7F4AEFA1B7FD95D0026D1B9 /* Countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Countries.json; sourceTree = "<group>"; };
 		B7F4AEFD1B7FD95D0026D1B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -140,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2CA17C0811F57C7AE7E9B3A /* Pods.framework in Frameworks */,
+				B750E3F51B820A600026189D /* DialsSyncManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +202,7 @@
 		9D51F0336F5BA6A7644DE76F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B750E3EC1B820A580026189D /* DialsSyncManager.xcodeproj */,
 				5B0BC0C6346B32D37F56E495 /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -360,6 +400,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		B750E3ED1B820A580026189D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B750E3F21B820A580026189D /* DialsSyncManager.framework */,
+				B750E3F41B820A580026189D /* DialsSyncManagerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B7F4AEF91B7FD95D0026D1B9 /* Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,10 +470,12 @@
 				B70F166C1B768652001263A8 /* Resources */,
 				039B659B00FB2B7B01A404D5 /* Embed Pods Frameworks */,
 				6C87E7F0EA0DB1D0B82E33A3 /* Copy Pods Resources */,
+				B750E3D51B8209030026189D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B750E3F81B820A600026189D /* PBXTargetDependency */,
 			);
 			name = Dials;
 			productName = Dials;
@@ -501,6 +552,12 @@
 			mainGroup = B70F16651B768652001263A8;
 			productRefGroup = B70F166F1B768652001263A8 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B750E3ED1B820A580026189D /* Products */;
+					ProjectRef = B750E3EC1B820A580026189D /* DialsSyncManager.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B70F166D1B768652001263A8 /* Dials */,
@@ -509,6 +566,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B750E3F21B820A580026189D /* DialsSyncManager.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DialsSyncManager.framework;
+			remoteRef = B750E3F11B820A580026189D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B750E3F41B820A580026189D /* DialsSyncManagerTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = DialsSyncManagerTests.xctest;
+			remoteRef = B750E3F31B820A580026189D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B70F166C1B768652001263A8 /* Resources */ = {
@@ -663,6 +737,11 @@
 			target = B70F166D1B768652001263A8 /* Dials */;
 			targetProxy = B70F168E1B768652001263A8 /* PBXContainerItemProxy */;
 		};
+		B750E3F81B820A600026189D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DialsSyncManager;
+			targetProxy = B750E3F71B820A600026189D /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -780,6 +859,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Dials/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dialsapp.Dials;
@@ -795,6 +879,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Dials/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dialsapp.Dials;

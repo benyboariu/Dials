@@ -8,12 +8,15 @@
 
 import UIKit
 import RealmSwift
+import DialsSyncManager
 
 class ViewController: UIViewController, DSDialViewDelegate {
     @IBOutlet weak var viewDial: DSDialView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        checkVersion()
 
         viewDial.delegate       = self
     }
@@ -55,6 +58,17 @@ class ViewController: UIViewController, DSDialViewDelegate {
         
         
         //viewDial.showEvents(arrEvents)
+    }
+    
+    func checkVersion() {
+        let dsSyncManger            = DSSyncManager()
+        
+        if dsSyncManger.canRunVersion1("2") {
+            print("TRUE", appendNewline: true)
+        }
+        else {
+            print("FALSE", appendNewline: true)
+        }
     }
     
     // MARK: - DSDialViewDelegate Methods
