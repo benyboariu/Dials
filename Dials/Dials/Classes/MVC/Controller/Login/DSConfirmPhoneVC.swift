@@ -24,6 +24,8 @@ class DSConfirmPhoneVC: DSBaseVC, UITextFieldDelegate {
     
     @IBOutlet var spinner: UIActivityIndicatorView!
     
+    var strPhone: String?
+    
     // MARK: - ViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,9 +60,48 @@ class DSConfirmPhoneVC: DSBaseVC, UITextFieldDelegate {
         spinner.hidden = true
     }
     
-    func pushToDSImportCalendarsVC() {
+    func pushToNextVC() {
         let importCalendarsVC = appDelegate.storyboardLogin.instantiateViewControllerWithIdentifier("DSImportCalendarsVC") as! DSImportCalendarsVC
         self.navigationController?.pushViewController(importCalendarsVC, animated: true)
+    }
+
+    // MARK: - API Methods
+    func loginWithPhone() {
+        
+        if let strToken = txfNuber.text {
+            if let strPhoneNumber = strPhone {
+                appDelegate.dsSyncManager.verifySMSToken(strPhoneNumber, token: strToken, completion: { (success, error, JSON) -> Void in
+                    if success {
+                        self.pushToNextVC()
+                        
+                    }
+                    else {
+                        let alert = DSUtils.okAlert("There was an error confirming your code. Please try again or request a new code.")
+                        
+                        self.presentViewController(alert, animated: true, completion: { () -> Void in
+                        })
+                    }
+                })
+            }
+        }
+    }
+    
+    func resendCode() {
+        
+        if let strPhoneNumber = strPhone {
+            appDelegate.dsSyncManager.requestSMSToken(strPhoneNumber, completion: { (success, error, JSON) -> Void in
+                if success {
+                    print("The code was send again", appendNewline: true)
+                    
+                }
+                else {
+                    let alert = DSUtils.okAlert("There was an error requesting your new code. Please try again.")
+                    
+                    self.presentViewController(alert, animated: true, completion: { () -> Void in
+                    })
+                }
+            })
+        }
     }
 
     // MARK: - Action Methods
@@ -69,11 +110,16 @@ class DSConfirmPhoneVC: DSBaseVC, UITextFieldDelegate {
     }
     
     @IBAction func btnSingIn_Action() {
+        loginWithPhone()
     }
     
     @IBAction func btnResendCode_Action() {
         
-        pushToDSImportCalendarsVC()
+        let alert = DSUtils.okAlert("We're sending you a new verification code.")
+        
+        self.presentViewController(alert, animated: true, completion: { () -> Void in
+            self.resendCode()
+        })
     }
     
     // MARK: - Memory Management Methods

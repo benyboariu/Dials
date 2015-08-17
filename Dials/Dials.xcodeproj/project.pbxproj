@@ -439,11 +439,11 @@
 		B7F4AF091B7FD9A50026D1B9 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				B7F4AF0A1B7FD9A50026D1B9 /* DSConfirmPhoneVC.swift */,
-				B7F4AF0B1B7FD9A50026D1B9 /* DSEmailAuthVC.swift */,
-				B7F4AF0C1B7FD9A50026D1B9 /* DSImportCalendarsVC.swift */,
 				B7F4AF0D1B7FD9A50026D1B9 /* DSIntroPageVC.swift */,
+				B7F4AF0B1B7FD9A50026D1B9 /* DSEmailAuthVC.swift */,
 				B7F4AF0E1B7FD9A50026D1B9 /* DSPhoneVerificationVC.swift */,
+				B7F4AF0A1B7FD9A50026D1B9 /* DSConfirmPhoneVC.swift */,
+				B7F4AF0C1B7FD9A50026D1B9 /* DSImportCalendarsVC.swift */,
 				B7F4AF0F1B7FD9A50026D1B9 /* DSProfileVC.swift */,
 				B7F4AF101B7FD9A50026D1B9 /* DSTermsAndPrivacyVC.swift */,
 			);

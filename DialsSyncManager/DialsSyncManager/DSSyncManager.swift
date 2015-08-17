@@ -62,6 +62,46 @@ public class DSSyncManager {
             })
     }
     
+    public func requestSMSToken(phone: String, completion: (success: Bool, error: String?, JSON: AnyObject?) -> Void) {
+        
+        let strUrl                       = "https://calendar-api.dialsapp.com/api/requestSMSToken?phone=\(phone)"
+        
+        self.manager.request(.GET, strUrl, parameters: nil, encoding: .JSON).responseJSON { (request, response, JSON) -> Void in
+            print(JSON.value, appendNewline: true)
+            
+            if let strResponse = JSON.value as? [String: AnyObject] {
+                if strResponse["err"] != nil {
+                    let err = strResponse["err"] as! String
+                    
+                    completion(success: false, error: err, JSON: nil)
+                }
+                else {
+                    completion(success: true, error: nil, JSON: JSON.value!)
+                }
+            }
+        }
+    }
+    
+    public func verifySMSToken(phone: String, token: String, completion: (success: Bool, error: String?, JSON: AnyObject?) -> Void) {
+        
+        let strUrl                       = "https://calendar-api.dialsapp.com/api/verifySMSToken?phone=\(phone)&token=\(token)"
+        
+        self.manager.request(.GET, strUrl, parameters: nil, encoding: .JSON).responseJSON { (request, response, JSON) -> Void in
+            print(JSON.value, appendNewline: true)
+            
+            if let strResponse = JSON.value as? [String: AnyObject] {
+                if strResponse["err"] != nil {
+                    let err = strResponse["err"] as! String
+                    
+                    completion(success: false, error: err, JSON: nil)
+                }
+                else {
+                    completion(success: true, error: nil, JSON: JSON.value!)
+                }
+            }
+        }
+    }
+    
     // MARK: - Private Methods
     
     func setupAlamofireManager() {

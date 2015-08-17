@@ -225,4 +225,25 @@ class DSUtils {
         let result = emailTest.evaluateWithObject(testStr)
         return result
     }
+    
+    class func stripPhoneNumberFormatting(num: String) -> String {
+        
+        var str = ""
+        str     = num.stringByReplacingOccurrencesOfString("(", withString: "")
+        str     = str.stringByReplacingOccurrencesOfString(")", withString: "")
+        str     = str.stringByReplacingOccurrencesOfString("-", withString: "")
+        str     = str.stringByReplacingOccurrencesOfString(" ", withString: "")
+        
+        return str
+    }
+    
+    class func urlEncodeUsingEncoding(string : String) -> String? {
+        
+        let originalString         = string
+        let customAllowedSet       =  NSCharacterSet(charactersInString:"!*'\"();:@&=+$,/?%#[]% ").invertedSet
+        let escapedString          = originalString.stringByAddingPercentEncodingWithAllowedCharacters(customAllowedSet)
+        
+        return escapedString
+    }
+    
 }
