@@ -91,49 +91,49 @@ class DSEmailAuthVC: DSBaseVC, UITextFieldDelegate {
         btnForgotPassword.hidden                   = true
     }
     
-    func pushToPhoneVerification() {
-        
-        let phoneVC = appDelegate.storyboardLogin.instantiateViewControllerWithIdentifier("DSPhoneVerificationVC") as! DSPhoneVerificationVC
+    func pushToPhoneVerification(dictParams: [String: AnyObject]) {
+        let phoneVC                 = appDelegate.storyboardLogin.instantiateViewControllerWithIdentifier("DSPhoneVerificationVC") as! DSPhoneVerificationVC
+        phoneVC.dictParams          = dictParams
         self.navigationController?.pushViewController(phoneVC, animated: true)
     }
     
     
     // MARK: - API Methods
     
-    func checkUsername_ApiCall(){
+    func checkIfEmailAvailable_ApiCall(){
         if let strEmail = self.txfUsername.text {
-            let strURL                      = appDelegate.dsSyncManager.returnAPIURLNoToken("/users/\(strEmail)")
-            
-            let dictHeaders = ["Content-Type": "application/json",
-                "Accept": "application/vnd.dials.v1+json"]
-            
-            Alamofire
-                .request(.GET, strURL, parameters: nil, encoding: .JSON, headers: dictHeaders)
-                .responseJSON(completionHandler: { (request, response, JSON) -> Void in
-                    //print(JSON.value, appendNewline: true)
+            appDelegate.dsSyncManager.checkIfEmailAvailable(strEmail, completion: { (success, error, JSON) -> Void in
+                if success {
+                    let dictParams          = [
+                        "network": "local",
+                        "email": self.txfUsername.text!,
+                        "password": self.txfPassword.text!,
+                        "type": "create"
+                    ]
                     
-                    if let strResponse = JSON.value as? [String: AnyObject] {
-                        if strResponse["active"] == nil {
-                            self.pushToPhoneVerification()
-                        }
-                        else {
-                            
-                            let alert = DSUtils.okAlert("Email address already used")
-                            self.presentViewController(alert, animated: true, completion: { () -> Void in
-                                self.txfUsername.text = ""
-                                self.txfUsername.becomeFirstResponder()
-                            })
-                        }
-                        
-                    }
-                })
+                    self.pushToPhoneVerification(dictParams)
+                }
+                else {
+                    let alert = DSUtils.okAlert(error)
+                    
+                    self.presentViewController(alert, animated: true, completion: { () -> Void in
+                    })
+                }
+            })
         }
     }
     
     func login_APICall() {
-        appDelegate.dsSyncManager.loginWithEmailAndPass("local", email: self.txfUsername.text!, password: self.txfPassword.text!) { (success, error, JSON) -> Void in
+        let dictParams          = [
+            "network": "local",
+            "email": self.txfUsername.text!,
+            "password": self.txfPassword.text!,
+            "type": "login"
+        ]
+        
+        appDelegate.dsSyncManager.loginWithEmailAndPass(dictParams) { (success, error, JSON) -> Void in
             if success {
-                self.pushToPhoneVerification()
+                self.pushToPhoneVerification(dictParams)
             }
             else {
                 let alert = DSUtils.okAlert(error)
@@ -142,33 +142,6 @@ class DSEmailAuthVC: DSBaseVC, UITextFieldDelegate {
                 })
             }
         }
-        
-        /*let dictParameters              = [
-            "network": "local",
-            "email": self.txfUsername.text!,
-            "password": self.txfPassword.text!
-        ]
-        
-        let strURL                      = "https://calendar-api.dialsapp.com/api/login"
-        
-        appDelegate.manager
-            .request(.POST, strURL, parameters: dictParameters, encoding: .JSON)
-            .responseJSON(completionHandler: { (request, response, JSON) -> Void in
-                print(JSON.value, appendNewline: true)
-                
-                if let strResponse = JSON.value as? [String: AnyObject] {
-                    if strResponse["active"] == nil {
-                        
-                        let alert = DSUtils.okAlert(strResponse["err"] as? String)
-                        self.presentViewController(alert, animated: true, completion: { () -> Void in
-                        })
-                    }
-                    else {
-                        self.pushToPhoneVerification()
-                    }
-                }
-                
-            })*/
     }
     
     // MARK: - Action Methods
@@ -247,7 +220,7 @@ class DSEmailAuthVC: DSBaseVC, UITextFieldDelegate {
                         if isLoginSelected == false {
                             print("Create Account", appendNewline: true)
                             // Create account
-                            checkUsername_ApiCall()
+                            checkIfEmailAvailable_ApiCall()
                         }
                         else {
                             // Login to Dials

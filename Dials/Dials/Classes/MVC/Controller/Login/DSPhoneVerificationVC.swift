@@ -34,13 +34,17 @@ class DSPhoneVerificationVC: DSBaseVC, DSPopoverVCDelegate, WYPopoverControllerD
     var arrDataSpecial              = [[String: AnyObject]]()
     var dictSelectedCountry         = [String: AnyObject]()
     
+    var dictParams                  = [String: AnyObject]()
+    
     var strPhoneFinal: String?
     
     // MARK: - ViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        txfPhone.text = "754823095"
+        //txfPhone.text = "754823095"
+        txfPhone.text = "753017120"
+        
         setup()
         
         loadCountries()
@@ -103,7 +107,8 @@ class DSPhoneVerificationVC: DSBaseVC, DSPopoverVCDelegate, WYPopoverControllerD
                         
                         for dictObject in arrParsed {
                             if let strID = dictObject["ISO3166-1-Alpha-2"] as? String {
-                                if strID == "US" {
+                                //if strID == "US" {
+                                if strID == "RO" {
                                     self.dictSelectedCountry        = dictObject
                                     
                                     setSelectedCountry()
@@ -135,33 +140,25 @@ class DSPhoneVerificationVC: DSBaseVC, DSPopoverVCDelegate, WYPopoverControllerD
     
     // MARK: - API Methods
     func loginWithPhone() {
-        
         if let strDial = dictSelectedCountry["Dial"] {
-            let strTxfPhone = DSUtils.stripPhoneNumberFormatting(txfPhone.text!)
+            let strTxfPhone         = DSUtils.stripPhoneNumberFormatting(txfPhone.text!)
             
-            let strPhone   = "+\(strDial)\(strTxfPhone)"
-            strPhoneFinal  = strPhone
+            let strPhone            = "+\(strDial)\(strTxfPhone)"
             
-            if let strPhoneF = strPhoneFinal {
-                if let strEncodedPhone = DSUtils.urlEncodeUsingEncoding(strPhoneF) {
-                    print(strEncodedPhone, appendNewline: true)
+            dictParams["phone"]     = strPhone
+            
+            appDelegate.dsSyncManager.loginWithEmailAndPass(dictParams, completion: { (success, error, JSON) -> Void in
+                if success {
+                    let confirmPhoneVC = appDelegate.storyboardLogin.instantiateViewControllerWithIdentifier("DSConfirmPhoneVC") as! DSConfirmPhoneVC
+                    self.navigationController?.pushViewController(confirmPhoneVC, animated: true)
+                }
+                else {
+                    let alert = DSUtils.okAlert(error)
                     
-                    appDelegate.dsSyncManager.requestSMSToken(strEncodedPhone, completion: { (success, error, JSON) -> Void in
-                        if success {
-                            let confirmPhoneVC = appDelegate.storyboardLogin.instantiateViewControllerWithIdentifier("DSConfirmPhoneVC") as! DSConfirmPhoneVC
-                            confirmPhoneVC.strPhone = strEncodedPhone
-                            self.navigationController?.pushViewController(confirmPhoneVC, animated: true)
-
-                        }
-                        else {
-                            let alert = DSUtils.okAlert(error)
-                            
-                            self.presentViewController(alert, animated: true, completion: { () -> Void in
-                            })
-                        }
+                    self.presentViewController(alert, animated: true, completion: { () -> Void in
                     })
                 }
-            }
+            })
         }
         
     }
