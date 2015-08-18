@@ -40,6 +40,7 @@
 		B745F6151B78F2D700815493 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B745F6141B78F2D700815493 /* Constants.swift */; };
 		B750E3F51B820A600026189D /* DialsSyncManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B750E3F21B820A580026189D /* DialsSyncManager.framework */; };
 		B750E3F61B820A600026189D /* DialsSyncManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B750E3F21B820A580026189D /* DialsSyncManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B7570DB91B83B57300F77C74 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7570DB81B83B57300F77C74 /* User.swift */; };
 		B78C67101B7A85EA005FE5E3 /* DSTimerHandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C670F1B7A85EA005FE5E3 /* DSTimerHandView.swift */; };
 		B7F4AF021B7FD95D0026D1B9 /* Countries.json in Resources */ = {isa = PBXBuildFile; fileRef = B7F4AEFA1B7FD95D0026D1B9 /* Countries.json */; };
 		B7F4AF031B7FD95D0026D1B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7F4AEFC1B7FD95D0026D1B9 /* LaunchScreen.storyboard */; };
@@ -155,6 +156,7 @@
 		B71D5A221B78C95100B7EDE4 /* DSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSUtils.swift; sourceTree = "<group>"; };
 		B745F6141B78F2D700815493 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B750E3EC1B820A580026189D /* DialsSyncManager.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DialsSyncManager.xcodeproj; path = ../DialsSyncManager/DialsSyncManager.xcodeproj; sourceTree = "<group>"; };
+		B7570DB81B83B57300F77C74 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B78C670F1B7A85EA005FE5E3 /* DSTimerHandView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSTimerHandView.swift; sourceTree = "<group>"; };
 		B7F4AEFA1B7FD95D0026D1B9 /* Countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Countries.json; sourceTree = "<group>"; };
 		B7F4AEFD1B7FD95D0026D1B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				B70A38231B78A59B004CB7C8 /* Event.swift */,
+				B7570DB81B83B57300F77C74 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -684,6 +687,7 @@
 				B71D5A1F1B78C94400B7EDE4 /* UIColor+Utils.swift in Sources */,
 				B7F4AF1C1B7FDB800026D1B9 /* DSLandingVC.swift in Sources */,
 				B7F4AF191B7FD9A50026D1B9 /* DSTermsAndPrivacyVC.swift in Sources */,
+				B7570DB91B83B57300F77C74 /* User.swift in Sources */,
 				B70F16741B768652001263A8 /* ViewController.swift in Sources */,
 				B70F16FD1B76BFDD001263A8 /* AngleGradientLayer.m in Sources */,
 				B7F4AF181B7FD9A50026D1B9 /* DSProfileVC.swift in Sources */,
