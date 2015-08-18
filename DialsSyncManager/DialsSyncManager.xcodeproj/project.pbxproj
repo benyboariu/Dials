@@ -383,6 +383,7 @@
 				B77C0DAD1B81E8BD00038279 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B77C0DAE1B81E8BD00038279 /* Build configuration list for PBXNativeTarget "DialsSyncManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -391,6 +392,7 @@
 				B77C0DB01B81E8BD00038279 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

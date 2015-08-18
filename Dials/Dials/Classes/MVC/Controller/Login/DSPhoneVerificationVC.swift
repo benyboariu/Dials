@@ -134,9 +134,6 @@ class DSPhoneVerificationVC: DSBaseVC, DSPopoverVCDelegate, WYPopoverControllerD
     }
     
     // MARK: - API Methods
-    
-
-    
     func loginWithPhone() {
         
         if let strDial = dictSelectedCountry["Dial"] {

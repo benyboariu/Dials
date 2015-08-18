@@ -32,8 +32,6 @@ class DSEmailAuthVC: DSBaseVC, UITextFieldDelegate {
     @IBOutlet var viewLineBorderMiddle: UIView!
     @IBOutlet var viewLineBorderBottom: UIView!
     
-    let dsSyncManager               = DSSyncManager()
-    
     // MARK: - ViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,7 +102,7 @@ class DSEmailAuthVC: DSBaseVC, UITextFieldDelegate {
     
     func checkUsername_ApiCall(){
         if let strEmail = self.txfUsername.text {
-            let strURL                      = "https://calendar-api.dialsapp.com/api/users/\(strEmail)"
+            let strURL                      = appDelegate.dsSyncManager.returnAPIURLNoToken("/users/\(strEmail)")
             
             let dictHeaders = ["Content-Type": "application/json",
                 "Accept": "application/vnd.dials.v1+json"]
@@ -133,7 +131,7 @@ class DSEmailAuthVC: DSBaseVC, UITextFieldDelegate {
     }
     
     func login_APICall() {
-        dsSyncManager.loginWithEmailAndPass("local", email: self.txfUsername.text!, password: self.txfPassword.text!) { (success, error, JSON) -> Void in
+        appDelegate.dsSyncManager.loginWithEmailAndPass("local", email: self.txfUsername.text!, password: self.txfPassword.text!) { (success, error, JSON) -> Void in
             if success {
                 self.pushToPhoneVerification()
             }

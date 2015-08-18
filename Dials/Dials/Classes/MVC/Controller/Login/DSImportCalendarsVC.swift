@@ -91,7 +91,8 @@ class DSImportCalendarsVC: DSBaseVC {
     }
     
     @IBAction func btniCloud_Action(sender: AnyObject) {
-        
+        let iCloudVC = appDelegate.storyboardLogin.instantiateViewControllerWithIdentifier("DSiCloudLoginVC") as! DSiCloudLoginVC
+        self.presentViewController(iCloudVC, animated: true, completion: nil)
     }
     
     @IBAction func btnGoogle_Action(sender: AnyObject) {
