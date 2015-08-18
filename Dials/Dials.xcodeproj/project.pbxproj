@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5D31B641B832C530079807E /* DSiCloudLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D31B631B832C530079807E /* DSiCloudLoginVC.swift */; };
+		B5D31B691B83A0C00079807E /* Environment.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5D31B681B83A0C00079807E /* Environment.plist */; };
 		B70A38241B78A59B004CB7C8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70A38231B78A59B004CB7C8 /* Event.swift */; };
 		B70A38261B78BB39004CB7C8 /* DSDialEventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B70A38251B78BB39004CB7C8 /* DSDialEventView.xib */; };
 		B70F16721B768652001263A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F16711B768652001263A8 /* AppDelegate.swift */; };
@@ -115,6 +117,8 @@
 		189C7747A09F9C3908B332FE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5B0BC0C6346B32D37F56E495 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F26AAAAFBD743BE2C79CDD9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B5D31B631B832C530079807E /* DSiCloudLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSiCloudLoginVC.swift; sourceTree = "<group>"; };
+		B5D31B681B83A0C00079807E /* Environment.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Environment.plist; sourceTree = "<group>"; };
 		B70A38231B78A59B004CB7C8 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		B70A38251B78BB39004CB7C8 /* DSDialEventView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSDialEventView.xib; sourceTree = "<group>"; };
 		B70F166E1B768652001263A8 /* Dials.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dials.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,12 +249,13 @@
 		B70F16701B768652001263A8 /* Dials */ = {
 			isa = PBXGroup;
 			children = (
-				B70F16EA1B76BC98001263A8 /* Libs */,
 				B70F16A11B76876F001263A8 /* Classes */,
+				B70F16EA1B76BC98001263A8 /* Libs */,
 				B70F16711B768652001263A8 /* AppDelegate.swift */,
 				B7F4AF1B1B7FDB800026D1B9 /* DSLandingVC.swift */,
 				B70F16731B768652001263A8 /* ViewController.swift */,
 				B70F16781B768652001263A8 /* Assets.xcassets */,
+				B5D31B681B83A0C00079807E /* Environment.plist */,
 				B70F167D1B768652001263A8 /* Info.plist */,
 				B70F16F91B76BFD6001263A8 /* Dials-Bridging-Header.h */,
 			);
@@ -449,6 +454,7 @@
 				B7F4AF0C1B7FD9A50026D1B9 /* DSImportCalendarsVC.swift */,
 				B7F4AF0F1B7FD9A50026D1B9 /* DSProfileVC.swift */,
 				B7F4AF101B7FD9A50026D1B9 /* DSTermsAndPrivacyVC.swift */,
+				B5D31B631B832C530079807E /* DSiCloudLoginVC.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -602,6 +608,7 @@
 				B7F4AF021B7FD95D0026D1B9 /* Countries.json in Resources */,
 				B70F16DC1B76BA80001263A8 /* DialsDigits.ttf in Resources */,
 				B70F16E11B76BA80001263A8 /* Proxima Nova Sbold.otf in Resources */,
+				B5D31B691B83A0C00079807E /* Environment.plist in Resources */,
 				B7F4AF031B7FD95D0026D1B9 /* LaunchScreen.storyboard in Resources */,
 				B7F4AF051B7FD95D0026D1B9 /* Main.storyboard in Resources */,
 				B70F16DE1B76BA80001263A8 /* MonoSpace.ttf in Resources */,
@@ -691,6 +698,7 @@
 				B70F16741B768652001263A8 /* ViewController.swift in Sources */,
 				B70F16FD1B76BFDD001263A8 /* AngleGradientLayer.m in Sources */,
 				B7F4AF181B7FD9A50026D1B9 /* DSProfileVC.swift in Sources */,
+				B5D31B641B832C530079807E /* DSiCloudLoginVC.swift in Sources */,
 				B70F17001B76C1A4001263A8 /* AngleGradientBorderLayer.swift in Sources */,
 				B7F4AF141B7FD9A50026D1B9 /* DSEmailAuthVC.swift in Sources */,
 				B70A38241B78A59B004CB7C8 /* Event.swift in Sources */,

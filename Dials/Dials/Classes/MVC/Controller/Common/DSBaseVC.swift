@@ -16,7 +16,7 @@ class DSBaseVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        lblTitle.font       = UIFont.proximaMediumOfSize(11)
+        lblTitle.font       = UIFont.proximaMediumOfSize(12)
     }
 
     override func didReceiveMemoryWarning() {

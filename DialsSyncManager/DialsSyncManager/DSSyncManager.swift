@@ -11,6 +11,8 @@ import Alamofire
 
 public class DSSyncManager {
     
+    let PRODUCTION              = 1
+    
     //>     Creating an Instance of the Alamofire Manager
     var manager = Alamofire.Manager.sharedInstance
     
@@ -34,7 +36,7 @@ public class DSSyncManager {
             "password": password
         ]
         
-        let strURL                      = "https://calendar-api.dialsapp.com/api/login"
+        let strURL                      = returnAPIURLNoToken("/login")
         
         self.manager
             .request(.POST, strURL, parameters: dictParameters, encoding: .JSON)
@@ -49,9 +51,6 @@ public class DSSyncManager {
                         else {
                             completion(success: false, error: nil, JSON: nil)
                         }
-                        //let alert = DSUtils.okAlert(strResponse["err"] as? String)
-                        //self.presentViewController(alert, animated: true, completion: { () -> Void in
-                        //})
                     }
                     else {
                         completion(success: true, error: nil, JSON: JSON.value!)
@@ -64,7 +63,7 @@ public class DSSyncManager {
     
     public func requestSMSToken(phone: String, completion: (success: Bool, error: String?, JSON: AnyObject?) -> Void) {
         
-        let strUrl                       = "https://calendar-api.dialsapp.com/api/requestSMSToken?phone=\(phone)"
+        let strUrl                       = returnAPIURLNoToken("/requestSMSToken?phone=\(phone)")
         
         self.manager.request(.GET, strUrl, parameters: nil, encoding: .JSON).responseJSON { (request, response, JSON) -> Void in
             print(JSON.value, appendNewline: true)
@@ -84,7 +83,7 @@ public class DSSyncManager {
     
     public func verifySMSToken(phone: String, token: String, completion: (success: Bool, error: String?, JSON: AnyObject?) -> Void) {
         
-        let strUrl                       = "https://calendar-api.dialsapp.com/api/verifySMSToken?phone=\(phone)&token=\(token)"
+        let strUrl                       = returnAPIURLNoToken("/verifySMSToken?phone=\(phone)&token=\(token)")
         
         self.manager.request(.GET, strUrl, parameters: nil, encoding: .JSON).responseJSON { (request, response, JSON) -> Void in
             print(JSON.value, appendNewline: true)
@@ -100,6 +99,25 @@ public class DSSyncManager {
                 }
             }
         }
+    }
+    
+    public func returnAPIURLNoToken(endpoint: String) -> String {
+        
+        var url = ""
+        let filePath = NSBundle.mainBundle().pathForResource("Environment", ofType: "plist")
+        
+        let dict = NSDictionary(contentsOfFile: filePath!)
+        
+        if (PRODUCTION == 1) {
+            url = dict?.objectForKey("Production") as! String
+        }
+        else {
+            url = dict?.objectForKey("Debug") as! String
+        }
+        
+        let strURL = "\(url)\(endpoint)"
+        
+        return strURL
     }
     
     // MARK: - Private Methods

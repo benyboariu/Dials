@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Production</key>
+	<string>https://calendar-api.dialsapp.com/api</string>
+	<key>Debug</key>
+	<string>http://ec2-52-6-78-76.compute-1.amazonaws.com:8081/api</string>
+</dict>
+</plist>
