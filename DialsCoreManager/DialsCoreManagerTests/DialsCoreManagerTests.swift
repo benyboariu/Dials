@@ -1,15 +1,15 @@
 //
-//  DialsSyncManagerTests.swift
-//  DialsSyncManagerTests
+//  DialsCoreManagerTests.swift
+//  DialsCoreManagerTests
 //
-//  Created by Beny Boariu on 17/08/15.
+//  Created by Beny Boariu on 19/08/15.
 //  Copyright © 2015 DayDials. All rights reserved.
 //
 
 import XCTest
-@testable import DialsSyncManager
+@testable import DialsCoreManager
 
-class DialsSyncManagerTests: XCTestCase {
+class DialsCoreManagerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

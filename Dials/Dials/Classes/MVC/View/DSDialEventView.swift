@@ -8,6 +8,7 @@
 
 import UIKit
 import DateTools
+import DialsCoreManager
 
 protocol DSDialEventViewDelegate {
     func didTapView(dsDialEventView: DSDialEventView)

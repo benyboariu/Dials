@@ -70,7 +70,7 @@ class DSConfirmPhoneVC: DSBaseVC, UITextFieldDelegate {
         
         if let strToken = txfNuber.text {
             if let strPhoneNumber = strPhone {
-                appDelegate.dsSyncManager.verifySMSToken(strPhoneNumber, token: strToken, completion: { (success, error, JSON) -> Void in
+                appDelegate.dsAPIManager.verifySMSToken(strPhoneNumber, token: strToken, completion: { (success, error, JSON) -> Void in
                     if success {
                         self.pushToNextVC()
                         
@@ -89,7 +89,7 @@ class DSConfirmPhoneVC: DSBaseVC, UITextFieldDelegate {
     func resendCode() {
         
         if let strPhoneNumber = strPhone {
-            appDelegate.dsSyncManager.requestSMSToken(strPhoneNumber, completion: { (success, error, JSON) -> Void in
+            appDelegate.dsAPIManager.requestSMSToken(strPhoneNumber, completion: { (success, error, JSON) -> Void in
                 if success {
                     print("The code was send again", appendNewline: true)
                     

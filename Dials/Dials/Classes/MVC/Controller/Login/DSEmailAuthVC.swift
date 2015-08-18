@@ -102,7 +102,7 @@ class DSEmailAuthVC: DSBaseVC, UITextFieldDelegate {
     
     func checkIfEmailAvailable_ApiCall(){
         if let strEmail = self.txfUsername.text {
-            appDelegate.dsSyncManager.checkIfEmailAvailable(strEmail, completion: { (success, error, JSON) -> Void in
+            appDelegate.dsAPIManager.checkIfEmailAvailable(strEmail, completion: { (success, error, JSON) -> Void in
                 if success {
                     let dictParams          = [
                         "network": "local",
@@ -131,7 +131,7 @@ class DSEmailAuthVC: DSBaseVC, UITextFieldDelegate {
             "type": "login"
         ]
         
-        appDelegate.dsSyncManager.loginWithEmailAndPass(dictParams) { (success, error, JSON) -> Void in
+        appDelegate.dsAPIManager.loginWithEmailAndPass(dictParams) { (success, error, JSON) -> Void in
             if success {
                 self.pushToPhoneVerification(dictParams)
             }

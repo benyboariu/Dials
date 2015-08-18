@@ -9,6 +9,7 @@
 import UIKit
 import QuartzCore
 import RealmSwift
+import DialsCoreManager
 
 protocol DSDialViewDelegate {
     func didChangeTimeForEvent(event: Event)

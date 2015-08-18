@@ -8,7 +8,7 @@
 
 import UIKit
 import RealmSwift
-import DialsSyncManager
+import DialsCoreManager
 
 class ViewController: UIViewController, DSDialViewDelegate {
     @IBOutlet weak var viewDial: DSDialView!
@@ -61,9 +61,8 @@ class ViewController: UIViewController, DSDialViewDelegate {
     }
     
     func checkVersion() {
-        let dsSyncManger            = DSSyncManager()
         
-        if dsSyncManger.canRunVersion("1") {
+        if appDelegate.dsAPIManager.canRunVersion("1") {
             print("TRUE", appendNewline: true)
         }
         else {

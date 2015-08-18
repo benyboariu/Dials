@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import RealmSwift
-import DialsSyncManager
+import DialsCoreManager
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var manager = Alamofire.Manager.sharedInstance
     
     //>     Creating an Instance of the DialsSyncManager
-    let dsSyncManager               = DSSyncManager()
+    let dsAPIManager                = DSAPIManager()
     
     var realm: Realm!
 
