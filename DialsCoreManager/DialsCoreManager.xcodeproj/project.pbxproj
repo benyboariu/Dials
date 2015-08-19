@@ -14,6 +14,7 @@
 		B72CA6501B83DA8A00C4B5AC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72CA64E1B83DA8A00C4B5AC /* User.swift */; };
 		B72CA6521B83DAC400C4B5AC /* DSSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72CA6511B83DAC400C4B5AC /* DSSyncManager.swift */; };
 		B72CA6541B83DADD00C4B5AC /* DSAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72CA6531B83DADD00C4B5AC /* DSAPIManager.swift */; };
+		B72CA6711B83F57C00C4B5AC /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72CA6701B83F57C00C4B5AC /* Account.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		B72CA64E1B83DA8A00C4B5AC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B72CA6511B83DAC400C4B5AC /* DSSyncManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSSyncManager.swift; sourceTree = "<group>"; };
 		B72CA6531B83DADD00C4B5AC /* DSAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSAPIManager.swift; sourceTree = "<group>"; };
+		B72CA6701B83F57C00C4B5AC /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			children = (
 				B72CA64D1B83DA8A00C4B5AC /* Event.swift */,
 				B72CA64E1B83DA8A00C4B5AC /* User.swift */,
+				B72CA6701B83F57C00C4B5AC /* Account.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B72CA6711B83F57C00C4B5AC /* Account.swift in Sources */,
 				B72CA6501B83DA8A00C4B5AC /* User.swift in Sources */,
 				B72CA6541B83DADD00C4B5AC /* DSAPIManager.swift in Sources */,
 				B72CA64F1B83DA8A00C4B5AC /* Event.swift in Sources */,
@@ -411,6 +415,7 @@
 				B72CA6461B83D82200C4B5AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B72CA6471B83D82200C4B5AC /* Build configuration list for PBXNativeTarget "DialsCoreManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +424,7 @@
 				B72CA6491B83D82200C4B5AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

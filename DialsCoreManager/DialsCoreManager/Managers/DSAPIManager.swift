@@ -58,9 +58,9 @@ public class DSAPIManager {
             .responseJSON(completionHandler: { (request, response, JSON) -> Void in
                 print(JSON.value, appendNewline: true)
                 
-                if let strResponse = JSON.value as? [String: AnyObject] {
-                    if strResponse["active"] == nil {
-                        if let strError = strResponse["err"] as? String {
+                if let dictResponse = JSON.value as? [String: AnyObject] {
+                    if dictResponse["active"] == nil {
+                        if let strError = dictResponse["err"] as? String {
                             completion(success: false, error: strError, JSON: nil)
                         }
                         else {
@@ -68,8 +68,26 @@ public class DSAPIManager {
                         }
                     }
                     else {
+                        let user = User().addEditUserWithDictionary(dictResponse)
                         
-                        
+                        if let dictLocal = dictResponse["local"] as? [String: AnyObject] {
+                            if let strEmail = dictLocal["email"] as? String {
+                                var dictAccount                 = [String: AnyObject]()
+                                
+                                dictAccount["ac_id"]            = strEmail;
+                                dictAccount["ac_type"]          = AccountType.Dials.rawValue
+                                dictAccount["ac_provider"]      = AccountProvider.Dials.rawValue
+                                dictAccount["ac_email"]         = strEmail
+                                
+                                let account                     = Account().addEditAccountWithDictionary(dictAccount)
+                                
+                                let realm                       = try! Realm()
+                                realm.write({ () -> Void in
+                                    user.toAccount.append(account)
+                                    account.toUser              = user
+                                })
+                            }
+                        }
                         
                         completion(success: true, error: nil, JSON: JSON.value!)
                     }
