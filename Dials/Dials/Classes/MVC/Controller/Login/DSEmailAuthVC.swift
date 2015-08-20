@@ -131,7 +131,7 @@ class DSEmailAuthVC: DSBaseVC, UITextFieldDelegate {
             "type": "login"
         ]
         
-        appDelegate.dsAPIManager.loginWithEmailAndPass(dictParams) { (success, error, JSON) -> Void in
+        appDelegate.dsAPIManager.loginWithEmailAndPass(dictParams) { (success, error, JSON, user) -> Void in
             if success {
                 self.pushToPhoneVerification(dictParams)
             }

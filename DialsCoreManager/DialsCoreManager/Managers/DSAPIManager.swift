@@ -50,8 +50,8 @@ public class DSAPIManager {
             })
     }
     
-    public func loginWithEmailAndPass(dictParams: [String: AnyObject], completion: (success: Bool, error: String?, JSON: AnyObject?) -> Void) {
-        let strURL                      = buildURLWithEndpoint("/login")
+    public func signUpWithEmailAndPass(dictParams: [String: AnyObject], completion: (success: Bool, error: String?, JSON: AnyObject?, user: User?) -> Void) {
+        let strURL                      = buildURLWithEndpoint("/users")
         
         self.manager
             .request(.POST, strURL, parameters: dictParams, encoding: .JSON)
@@ -61,10 +61,10 @@ public class DSAPIManager {
                 if let dictResponse = JSON.value as? [String: AnyObject] {
                     if dictResponse["active"] == nil {
                         if let strError = dictResponse["err"] as? String {
-                            completion(success: false, error: strError, JSON: nil)
+                            completion(success: false, error: strError, JSON: nil, user: nil)
                         }
                         else {
-                            completion(success: false, error: nil, JSON: nil)
+                            completion(success: false, error: nil, JSON: nil, user: nil)
                         }
                     }
                     else {
@@ -89,7 +89,53 @@ public class DSAPIManager {
                             }
                         }
                         
-                        completion(success: true, error: nil, JSON: JSON.value!)
+                        completion(success: true, error: nil, JSON: JSON.value!,  user: user)
+                    }
+                }
+                
+            })
+    }
+    
+    public func loginWithEmailAndPass(dictParams: [String: AnyObject], completion: (success: Bool, error: String?, JSON: AnyObject?, user: User?) -> Void) {
+        let strURL                      = buildURLWithEndpoint("/login")
+        
+        self.manager
+            .request(.POST, strURL, parameters: dictParams, encoding: .JSON)
+            .responseJSON(completionHandler: { (request, response, JSON) -> Void in
+                print(JSON.value, appendNewline: true)
+                
+                if let dictResponse = JSON.value as? [String: AnyObject] {
+                    if dictResponse["active"] == nil {
+                        if let strError = dictResponse["err"] as? String {
+                            completion(success: false, error: strError, JSON: nil, user: nil)
+                        }
+                        else {
+                            completion(success: false, error: nil, JSON: nil, user: nil)
+                        }
+                    }
+                    else {
+                        let user = User().addEditUserWithDictionary(dictResponse)
+                        
+                        if let dictLocal = dictResponse["local"] as? [String: AnyObject] {
+                            if let strEmail = dictLocal["email"] as? String {
+                                var dictAccount                 = [String: AnyObject]()
+                                
+                                dictAccount["ac_id"]            = strEmail;
+                                dictAccount["ac_type"]          = AccountType.Dials.rawValue
+                                dictAccount["ac_provider"]      = AccountProvider.Dials.rawValue
+                                dictAccount["ac_email"]         = strEmail
+                                
+                                let account                     = Account().addEditAccountWithDictionary(dictAccount)
+                                
+                                let realm                       = try! Realm()
+                                realm.write({ () -> Void in
+                                    user.toAccount.append(account)
+                                    account.toUser              = user
+                                })
+                            }
+                        }
+                        
+                        completion(success: true, error: nil, JSON: JSON.value!,  user: user)
                     }
                 }
                 
@@ -118,8 +164,7 @@ public class DSAPIManager {
     }
     
     public func verifySMSToken(phone: String, token: String, completion: (success: Bool, error: String?, JSON: AnyObject?) -> Void) {
-        
-        let strUrl                       = buildURLWithEndpoint("/verifySMSToken?phone=\(phone)&token=\(token)")
+        let strUrl                  = buildURLWithEndpoint("/verifySMSToken?phone=\(phone)&token=\(token)")
         
         self.manager.request(.GET, strUrl, parameters: nil, encoding: .JSON).responseJSON { (request, response, JSON) -> Void in
             print(JSON.value, appendNewline: true)

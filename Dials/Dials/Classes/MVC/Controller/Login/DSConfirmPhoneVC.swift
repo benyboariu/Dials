@@ -67,21 +67,21 @@ class DSConfirmPhoneVC: DSBaseVC, UITextFieldDelegate {
 
     // MARK: - API Methods
     func loginWithPhone() {
-        
         if let strToken = txfNuber.text {
-            if let strPhoneNumber = strPhone {
-                appDelegate.dsAPIManager.verifySMSToken(strPhoneNumber, token: strToken, completion: { (success, error, JSON) -> Void in
-                    if success {
-                        self.pushToNextVC()
-                        
-                    }
-                    else {
-                        let alert = DSUtils.okAlert("There was an error confirming your code. Please try again or request a new code.")
-                        
-                        self.presentViewController(alert, animated: true, completion: { () -> Void in
-                        })
-                    }
-                })
+            if let user = appDelegate.curUser {
+                if let strPhone = DSUtils.urlEncodeUsingEncoding(user.u_phone) {
+                    appDelegate.dsAPIManager.verifySMSToken(strPhone, token: strToken, completion: { (success, error, JSON) -> Void in
+                        if success {
+                            self.pushToNextVC()
+                        }
+                        else {
+                            let alert = DSUtils.okAlert("There was an error confirming your code. Please try again or request a new code.")
+                            
+                            self.presentViewController(alert, animated: true, completion: { () -> Void in
+                            })
+                        }
+                    })
+                }
             }
         }
     }

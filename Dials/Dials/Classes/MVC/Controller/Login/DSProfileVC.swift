@@ -33,7 +33,10 @@ class DSProfileVC: DSBaseVC, UITextViewDelegate {
         // Do any additional setup after loading the view.
         setupUI()
         
-        
+        if let user = appDelegate.curUser {
+            txfFirstName.text       = user.u_firstName
+            txfLastName.text        = user.u_lastName
+        }
     }
 
     // MARK: - Public Methods

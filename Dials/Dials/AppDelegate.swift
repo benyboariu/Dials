@@ -29,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let dsAPIManager                = DSAPIManager()
     
     var realm: Realm!
+    
+    var curUser: User?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.setupAlamofireManager()

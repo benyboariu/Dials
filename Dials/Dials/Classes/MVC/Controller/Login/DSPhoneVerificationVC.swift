@@ -147,9 +147,13 @@ class DSPhoneVerificationVC: DSBaseVC, DSPopoverVCDelegate, WYPopoverControllerD
             
             dictParams["phone"]     = strPhone
             
-            appDelegate.dsAPIManager.loginWithEmailAndPass(dictParams, completion: { (success, error, JSON) -> Void in
+            appDelegate.dsAPIManager.signUpWithEmailAndPass(dictParams, completion: { (success, error, JSON, user) -> Void in
                 if success {
-                    let confirmPhoneVC = appDelegate.storyboardLogin.instantiateViewControllerWithIdentifier("DSConfirmPhoneVC") as! DSConfirmPhoneVC
+                    if let user = user {
+                        appDelegate.curUser     = user
+                    }
+                    
+                    let confirmPhoneVC          = appDelegate.storyboardLogin.instantiateViewControllerWithIdentifier("DSConfirmPhoneVC") as! DSConfirmPhoneVC
                     self.navigationController?.pushViewController(confirmPhoneVC, animated: true)
                 }
                 else {
