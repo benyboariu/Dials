@@ -10,28 +10,20 @@ import UIKit
 
 class DSProfileVC: DSBaseVC, UITextViewDelegate {
 
-    @IBOutlet var lblEnterName: UILabel!
-   
-    @IBOutlet var viewLineBorderTop: UIView!
-    @IBOutlet var viewLineBorderMiddle: UIView!
-    @IBOutlet var viewLineBorderBottom: UIView!
-    
-    @IBOutlet var btnStartDials: UIButton!
-    @IBOutlet var btnDone: UIButton!
-    
+    // IBOutlet
     @IBOutlet var txvPrivacyPolicy: UITextView!
     
     @IBOutlet var spinner: UIActivityIndicatorView!
     
-    @IBOutlet var txfFirstName: UITextField!
-    @IBOutlet var txfLastName: UITextField!
+    @IBOutlet var txfFirstName: DSTextField!
+    @IBOutlet var txfLastName: DSTextField!
     
     // MARK: - ViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        setupUI()
+        setupTxvPrivacyPolicy()
         
         if let user = appDelegate.curUser {
             txfFirstName.text       = user.u_firstName
@@ -43,53 +35,16 @@ class DSProfileVC: DSBaseVC, UITextViewDelegate {
     
     // MARK: - Custom Methods
     
-    func setupUI() {
+    func setupTxvPrivacyPolicy() {
         
-        // setup buttons
-        btnStartDials.titleLabel?.font = UIFont.proximaBoldOfSize(20.0)
-        btnStartDials.backgroundColor = UIColor.dialsBlueAlt()
-        btnStartDials.layer.borderWidth = 1
-        btnStartDials.layer.cornerRadius = 6
-        btnStartDials.setTitleColor(UIColor.dialsWhite(), forState: UIControlState.Normal)
-        
-        btnDone.setTitleColor(UIColor.dialsBlue(), forState: UIControlState.Normal)
-        
-        // setup labels
-        lblEnterName.font = UIFont.proximaBoldOfSize(18.0)
-        lblEnterName.textColor = UIColor.dialsWhite()
-        
-        // setup border lines
-        viewLineBorderTop.backgroundColor = UIColor.dialsDarkGrey()
-        viewLineBorderMiddle.backgroundColor = UIColor.dialsDarkGrey()
-        viewLineBorderBottom.backgroundColor = UIColor.dialsDarkGrey()
-        
-        // setup text fields
-        txfFirstName.font = UIFont.proximaMediumOfSize(26.0)
-        txfFirstName.textColor = UIColor.dialsWhite()
-        txfFirstName.attributedPlaceholder = NSAttributedString(string: "FIRST NAME", attributes: [NSForegroundColorAttributeName: UIColor.dialsDarkGrey()])
-        
-        txfLastName.font = UIFont.proximaMediumOfSize(26.0)
-        txfLastName.textColor = UIColor.dialsWhite()
-        txfLastName.attributedPlaceholder = NSAttributedString(string: "LAST NAME", attributes: [NSForegroundColorAttributeName: UIColor.dialsDarkGrey()])
-        
-        // setup txvPrivacyPolicy
         txvPrivacyPolicy.attributedText = getAttributedTextPrivacyPolicy()
-        txvPrivacyPolicy.editable = false
-        txvPrivacyPolicy.delaysContentTouches = false
-        txvPrivacyPolicy.textAlignment = NSTextAlignment.Center
-        txvPrivacyPolicy.scrollEnabled = true
-        txvPrivacyPolicy.showsHorizontalScrollIndicator = false
-        txvPrivacyPolicy.showsVerticalScrollIndicator = false
-        txvPrivacyPolicy.tintColor = UIColor.dialsBlue()
-        txvPrivacyPolicy.textColor = UIColor.whiteColor()
-        
-        spinner.hidden = true
     }
     
     func getAttributedTextPrivacyPolicy() -> NSAttributedString {
         let font                            = UIFont.proximaRegularOfSize(14)!
 
-        let attribLight                     = [NSFontAttributeName : font]
+        let attribLight                     = [NSFontAttributeName : font,
+            NSForegroundColorAttributeName : UIColor.dialsWhite()]
         let attribSemibold                  = [NSFontAttributeName : font]
         
         let strAttrib                       = NSMutableAttributedString()

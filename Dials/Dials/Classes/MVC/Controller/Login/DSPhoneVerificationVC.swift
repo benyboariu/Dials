@@ -13,20 +13,10 @@ import DialsSyncManager
 class DSPhoneVerificationVC: DSBaseVC, DSPopoverVCDelegate, WYPopoverControllerDelegate {
     
     // IBOutlet
-    @IBOutlet var lblEnterPhoneNumber: UILabel!
-    @IBOutlet var lblInstructions: UILabel!
     @IBOutlet var lblCountry: UILabel!
-    
     @IBOutlet var txfPhone: UITextField!
-    
-    @IBOutlet var btnSendVerifCode: UIButton!
     @IBOutlet var btnCountry: UIButton!
-    
     @IBOutlet var imgViewDropdown: UIImageView!
-    
-    @IBOutlet var viewLineBorderUp: UIView!
-    @IBOutlet var viewLineBorderMiddle: UIView!
-    @IBOutlet var viewLineBorderDown: UIView!
     
     lazy var popover                = WYPopoverController()
     
@@ -42,42 +32,15 @@ class DSPhoneVerificationVC: DSBaseVC, DSPopoverVCDelegate, WYPopoverControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //txfPhone.text = "754823095"
-        txfPhone.text = "753017120"
-        
-        setup()
-        
+        txfPhone.text = "754823095"
+        //txfPhone.text = "753017120"
+
         loadCountries()
     }
     
     // MARK: - Public Methods
     
     // MARK: - Custom Methods
-    
-    func setup() {
-        
-        txfPhone.font = UIFont.proximaBoldOfSize(26.0)
-        txfPhone.textColor = UIColor.dialsWhite()
-        
-        btnSendVerifCode.titleLabel?.font = UIFont.proximaBoldOfSize(20.0)
-        btnSendVerifCode.backgroundColor = UIColor.dialsBlueAlt()
-        btnSendVerifCode.layer.borderWidth = 1
-        btnSendVerifCode.layer.cornerRadius = 6
-        btnSendVerifCode.setTitleColor(UIColor.dialsWhite(), forState: UIControlState.Normal)
-        
-        lblEnterPhoneNumber.font = UIFont.proximaBoldOfSize(18.0)
-        lblEnterPhoneNumber.textColor = UIColor.dialsWhite()
-        
-        lblInstructions.font = UIFont.proximaMediumOfSize(13.0)
-        lblInstructions.textAlignment = NSTextAlignment.Justified
-        lblInstructions.textColor = UIColor.dialsMediumGrey()
-        
-        viewLineBorderUp.backgroundColor = UIColor.dialsDarkGrey()
-        viewLineBorderMiddle.backgroundColor = UIColor.dialsDarkGrey()
-        viewLineBorderDown.backgroundColor = UIColor.dialsDarkGrey()
-        
-        btnSendVerifCode.enabled = true
-    }
     
     func loadCountries() {
         if let strJSONPath = NSBundle.mainBundle().pathForResource("Countries", ofType: "json") {

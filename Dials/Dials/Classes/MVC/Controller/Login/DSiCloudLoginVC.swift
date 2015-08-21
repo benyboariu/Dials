@@ -10,51 +10,44 @@ import UIKit
 
 class DSiCloudLoginVC: DSBaseVC, UITextViewDelegate {
 
-    
+    // IBOutlet
     @IBOutlet var spinner: UIActivityIndicatorView!
-    
-    @IBOutlet var lblName: UILabel!
     
     @IBOutlet var txfEmail: UITextField!
     @IBOutlet var txfPassword: UITextField!
     @IBOutlet var txvInfo: UITextView!
-    
-    @IBOutlet var btnSignIn: UIButton!
-    
-    let colorBlue                      = UIColor.color(0, green: 146, blue: 219, alpha: 1)
+
     // MARK: - ViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        spinner.hidden                     = true
-        
-        let color                          = UIColor.color(107, green: 107, blue: 107, alpha: 1)
-        
-        txfEmail.attributedPlaceholder     = NSAttributedString(string: txfEmail.placeholder!, attributes: [NSForegroundColorAttributeName : color])
-        txfPassword.attributedPlaceholder  = NSAttributedString(string: txfPassword.placeholder!, attributes: [NSForegroundColorAttributeName : color])
-        
-        txvInfo.attributedText             = getAttributedTextPrivacyPolicy()
-        txvInfo.editable                   = false
-        txvInfo.delaysContentTouches       = false
-        txvInfo.textAlignment              = NSTextAlignment.Justified
-        txvInfo.scrollEnabled              = true
-        txvInfo.showsHorizontalScrollIndicator = false
-        txvInfo.showsVerticalScrollIndicator = false
-        txvInfo.tintColor                   = colorBlue
-        txvInfo.textColor                   = UIColor.whiteColor()
- 
+        setupTxvPrivacyPolicy()
     }
     
     // MARK: - Public Methods
     
     // MARK: - Custom Methods
+    
+    func setupTxvPrivacyPolicy() {
+        
+        txvInfo.attributedText             = getAttributedTextPrivacyPolicy()
+        
+        // setup placeholder for textField
+        let color                          = UIColor.color(107, green: 107, blue: 107, alpha: 1)
+        
+        txfEmail.attributedPlaceholder     = NSAttributedString(string: txfEmail.placeholder!, attributes: [NSForegroundColorAttributeName : color])
+        txfPassword.attributedPlaceholder  = NSAttributedString(string: txfPassword.placeholder!, attributes: [NSForegroundColorAttributeName : color])
+    }
+    
     func getAttributedTextPrivacyPolicy() -> NSAttributedString {
+        
+        let colorBlue                      = UIColor.color(0, green: 146, blue: 219, alpha: 1)
         let font                            = UIFont.proximaRegularOfSize(12)!
         
         
-        let attribLight                     = [NSFontAttributeName : font]
+        let attribLight                     = [NSFontAttributeName : font, NSForegroundColorAttributeName : UIColor.dialsWhite()]
         let attribSemibold                  = [NSFontAttributeName : font, NSUnderlineColorAttributeName: colorBlue, NSUnderlineStyleAttributeName : NSUnderlineStyle.StyleSingle.rawValue]
         
         let strAttrib                       = NSMutableAttributedString()
@@ -66,7 +59,7 @@ class DSiCloudLoginVC: DSBaseVC, UITextViewDelegate {
         
         strAttrib.appendAttributedString(strBy)
         strAttrib.appendAttributedString(strPrivacy)
-
+        
         return strAttrib
     }
     
@@ -83,7 +76,6 @@ class DSiCloudLoginVC: DSBaseVC, UITextViewDelegate {
     
     // MARK: - UITextViewDelegate Methods
     func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool {
-        
         
         let termsAndPrivacyVC = appDelegate.storyboardLogin.instantiateViewControllerWithIdentifier("DSTermsAndPrivacyVC") as! DSTermsAndPrivacyVC
         

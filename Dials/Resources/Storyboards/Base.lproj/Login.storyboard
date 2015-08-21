@@ -10,12 +10,31 @@
         </mutableArray>
         <mutableArray key="Proxima Nova Bold.otf">
             <string>ProximaNova-Bold</string>
+            <string>ProximaNova-Bold</string>
+            <string>ProximaNova-Bold</string>
+            <string>ProximaNova-Bold</string>
+            <string>ProximaNova-Bold</string>
+            <string>ProximaNova-Bold</string>
+            <string>ProximaNova-Bold</string>
+            <string>ProximaNova-Bold</string>
+            <string>ProximaNova-Bold</string>
+            <string>ProximaNova-Bold</string>
+            <string>ProximaNova-Bold</string>
+            <string>ProximaNova-Bold</string>
         </mutableArray>
         <mutableArray key="Proxima Nova Reg.otf">
             <string>ProximaNova-Regular</string>
-            <string>ProximaNova-Regular</string>
         </mutableArray>
         <mutableArray key="Proxima Nova Sbold.otf">
+            <string>ProximaNova-Semibold</string>
+            <string>ProximaNova-Semibold</string>
+            <string>ProximaNova-Semibold</string>
+            <string>ProximaNova-Semibold</string>
+            <string>ProximaNova-Semibold</string>
+            <string>ProximaNova-Semibold</string>
+            <string>ProximaNova-Semibold</string>
+            <string>ProximaNova-Semibold</string>
+            <string>ProximaNova-Semibold</string>
             <string>ProximaNova-Semibold</string>
             <string>ProximaNova-Semibold</string>
             <string>ProximaNova-Semibold</string>
@@ -163,57 +182,70 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JFa-AE-p2z">
                                         <rect key="frame" x="22" y="15" width="277" height="290"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="q38-ZB-8Nb">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="EMAIL ADDRESS" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="q38-ZB-8Nb" customClass="DSTextField" customModule="Dials" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="42" width="277" height="63"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="63" id="SR0-F6-cf0"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="26"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="next"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="DQW-zP-5p4" id="qni-aN-vJt"/>
                                                 </connections>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVF-9b-g8g">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVF-9b-g8g" customClass="DSButton" customModule="Dials">
                                                 <rect key="frame" x="0.0" y="215" width="277" height="60"/>
+                                                <color key="backgroundColor" red="0.34901960784313724" green="0.75294117647058822" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="277" id="ICd-4E-vDc"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="20"/>
                                                 <state key="normal" title="CREATE ACCOUNT">
+                                                    <color key="titleColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="btnCreateAccount_Action" destination="DQW-zP-5p4" eventType="touchUpInside" id="xO2-IM-tVm"/>
                                                 </connections>
                                             </button>
-                                            <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tps-fq-xRY" userLabel="View - line">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tps-fq-xRY" userLabel="View - line">
                                                 <rect key="frame" x="0.0" y="43" width="277" height="1"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.30196078431372547" green="0.30196078431372547" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="6Zj-iJ-nak"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dn8-g0-JJJ" userLabel="View - line">
                                                 <rect key="frame" x="0.0" y="105" width="277" height="1"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="7qa-Eh-1bb"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7un-bi-rad" userLabel="View - line">
                                                 <rect key="frame" x="0.0" y="169" width="277" height="1"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="GLd-RR-zna"/>
                                                 </constraints>
                                             </view>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="onI-Fs-evs">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PASSWORD" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="onI-Fs-evs" customClass="DSTextField" customModule="Dials" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="105" width="277" height="63"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="63" id="ZlX-L9-2qt"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done"/>
+                                                <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="26"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="yes" keyboardAppearance="alert" returnKeyType="done" secureTextEntry="YES"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="DQW-zP-5p4" id="3NX-xr-TPm"/>
                                                 </connections>
@@ -224,9 +256,9 @@
                                                     <constraint firstAttribute="width" constant="130" id="38O-yO-iGs"/>
                                                     <constraint firstAttribute="height" constant="30" id="pFa-Vs-dLx"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="16"/>
                                                 <state key="normal" title="CREATE">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" red="0.0" green="0.80784313730000001" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -239,8 +271,9 @@
                                                     <constraint firstAttribute="width" constant="130" id="153-tS-q3u"/>
                                                     <constraint firstAttribute="height" constant="30" id="TVm-VN-efZ"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="16"/>
                                                 <state key="normal" title="LOGIN">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" red="0.30196078431372547" green="0.30196078431372547" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -252,17 +285,18 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="AE4-MR-tcF"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="12"/>
+                                                <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HID-wj-S0m">
+                                            <button hidden="YES" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HID-wj-S0m">
                                                 <rect key="frame" x="0.0" y="182" width="277" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="4KH-y4-3Wn"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="12"/>
                                                 <state key="normal" title="Forgot Password">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" red="0.0" green="0.80784313725490198" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -271,7 +305,7 @@
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R2W-ev-yYJ" userLabel="View - line">
                                                 <rect key="frame" x="138" y="0.0" width="1" height="30"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="3Zz-hk-lmk"/>
                                                     <constraint firstAttribute="width" constant="1" id="xDF-Hh-bzc"/>
@@ -348,10 +382,6 @@
                         <outlet property="lblTitleTopBar" destination="MGG-tU-tcl" id="LCp-Dc-Z2W"/>
                         <outlet property="txfPassword" destination="onI-Fs-evs" id="Tl3-ZP-43W"/>
                         <outlet property="txfUsername" destination="q38-ZB-8Nb" id="VHM-O9-dM8"/>
-                        <outlet property="viewLineBorder" destination="R2W-ev-yYJ" id="wsi-Na-7z6"/>
-                        <outlet property="viewLineBorderBottom" destination="7un-bi-rad" id="fCE-Hs-rPR"/>
-                        <outlet property="viewLineBorderMiddle" destination="dn8-g0-JJJ" id="fqO-2U-gaE"/>
-                        <outlet property="viewLineBorderUp" destination="tps-fq-xRY" id="3EH-ff-dZc"/>
                         <outlet property="viewTopBar" destination="W0p-Mx-842" id="NVr-SH-33g"/>
                     </connections>
                 </viewController>
@@ -436,8 +466,8 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="gcI-qT-XKY"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="18"/>
+                                                <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ipf-PY-HdH" userLabel="View - Dropdown">
@@ -483,7 +513,7 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oup-BS-BMq">
                                                 <rect key="frame" x="0.0" y="95" width="277" height="1"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.30196078431372547" green="0.30196078431372547" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="4mL-qy-0c6"/>
                                                 </constraints>
@@ -493,7 +523,8 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="63" id="FTE-3y-67S"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="26"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" keyboardAppearance="alert"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="s7Y-pr-FMW" id="bdF-DH-TFP"/>
@@ -501,34 +532,45 @@
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J9S-a8-Pbd">
                                                 <rect key="frame" x="0.0" y="43" width="277" height="1"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="4oP-Nd-jV6"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Scy-wG-jze">
                                                 <rect key="frame" x="0.0" y="160" width="277" height="1"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="YQT-xy-DlU"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ykd-Ip-bpf">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ykd-Ip-bpf" customClass="DSButton" customModule="Dials" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="175" width="277" height="60"/>
+                                                <color key="backgroundColor" red="0.34901960780000002" green="0.75294117650000003" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="Xwl-Lj-g4j"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="20"/>
                                                 <state key="normal" title="SEND VERIFICATION CODE">
+                                                    <color key="titleColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="btnSendVerifCode_Action" destination="s7Y-pr-FMW" eventType="touchUpInside" id="gTF-rf-rqZ"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By clicking “Send Verification Code” above, Dials will send you a SMS message to confirm your phone number." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vz-8d-HqK">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By clicking “Send Verification Code” above, Dials will send you a SMS message to confirm your phone number." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vz-8d-HqK">
                                                 <rect key="frame" x="0.0" y="238" width="277" height="62"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="13"/>
+                                                <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -585,16 +627,10 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="btnCountry" destination="j45-10-D2W" id="wMb-IT-hFl"/>
-                        <outlet property="btnSendVerifCode" destination="ykd-Ip-bpf" id="kT0-oT-Aec"/>
                         <outlet property="imgViewDropdown" destination="Hop-2G-9DE" id="wW4-Ae-hRs"/>
                         <outlet property="lblCountry" destination="lYR-9X-JHm" id="Diq-ll-Jri"/>
-                        <outlet property="lblEnterPhoneNumber" destination="74F-uF-3E0" id="h1U-m9-uKp"/>
-                        <outlet property="lblInstructions" destination="5Vz-8d-HqK" id="BQx-V7-Gmq"/>
                         <outlet property="lblTitle" destination="NAg-6Z-FYX" id="n8l-nb-Ver"/>
                         <outlet property="txfPhone" destination="y9j-5N-smt" id="aiK-0d-Iml"/>
-                        <outlet property="viewLineBorderDown" destination="Scy-wG-jze" id="7JN-n8-pSZ"/>
-                        <outlet property="viewLineBorderMiddle" destination="oup-BS-BMq" id="pa2-ub-fKJ"/>
-                        <outlet property="viewLineBorderUp" destination="J9S-a8-Pbd" id="fb1-RL-lrD"/>
                         <outlet property="viewTopBar" destination="Hr3-Lc-zGD" id="Yev-yv-gTs"/>
                     </connections>
                 </viewController>
@@ -679,8 +715,8 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="5My-n0-M56"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="18"/>
+                                                <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ZzP-Mt-Pgf">
@@ -689,34 +725,46 @@
                                                     <constraint firstAttribute="width" constant="277" id="5xq-2G-ge7"/>
                                                     <constraint firstAttribute="height" constant="63" id="I1V-wW-uia"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="26"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" keyboardAppearance="alert"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="iqK-hK-m9t" id="j3R-eC-yoN"/>
                                                 </connections>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqy-dy-BK0">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqy-dy-BK0" customClass="DSButton" customModule="Dials" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="121" width="277" height="60"/>
+                                                <color key="backgroundColor" red="0.0" green="0.80784313725490198" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="1or-xW-3Vx"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="20"/>
                                                 <state key="normal" title="SIGN IN">
+                                                    <color key="titleColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="btnSingIn_Action" destination="iqK-hK-m9t" eventType="touchUpInside" id="XQB-EJ-5OT"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xi-h1-9UV">
                                                 <rect key="frame" x="0.0" y="43" width="277" height="1"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="bUP-OM-Zt4"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4M-My-g2I">
                                                 <rect key="frame" x="0.0" y="105" width="277" height="1"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="R6E-YX-Bcd"/>
                                                 </constraints>
@@ -726,14 +774,16 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="fgj-AH-70c"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="14"/>
                                                 <state key="normal" title="RESEND CONFIRMATION CODE">
+                                                    <color key="titleColor" red="0.34901960784313724" green="0.75294117647058822" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="btnResendCode_Action" destination="iqK-hK-m9t" eventType="touchUpInside" id="Wvl-3E-VBU"/>
                                                 </connections>
                                             </button>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="boO-we-F2R">
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="boO-we-F2R">
                                                 <rect key="frame" x="249" y="64" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="AGk-pS-6xA"/>
@@ -795,14 +845,9 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="btnResendCode" destination="Z85-gt-Ryx" id="QH4-xw-nq3"/>
-                        <outlet property="btnSingIn" destination="uqy-dy-BK0" id="0BC-AA-4do"/>
-                        <outlet property="lblEnterCode" destination="pxu-82-V6Q" id="if7-Gh-oDj"/>
                         <outlet property="lblTitle" destination="ynb-hs-8Na" id="vci-31-7Tm"/>
                         <outlet property="spinner" destination="boO-we-F2R" id="heK-pQ-IIq"/>
                         <outlet property="txfNuber" destination="ZzP-Mt-Pgf" id="Zjb-bL-Nci"/>
-                        <outlet property="viewLineBorderBottom" destination="a4M-My-g2I" id="0vP-KH-Ihg"/>
-                        <outlet property="viewLineBorderTop" destination="9xi-h1-9UV" id="LUv-7q-ary"/>
                         <outlet property="viewTopBar" destination="yIF-7Q-cev" id="eTA-W9-O9u"/>
                     </connections>
                 </viewController>
@@ -1246,7 +1291,7 @@ Calendar</string>
                                                     <constraint firstAttribute="height" constant="1" id="2zw-6D-Yj1"/>
                                                 </constraints>
                                             </view>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Y3g-Rc-Z2r">
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Y3g-Rc-Z2r">
                                                 <rect key="frame" x="249" y="62" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="HE3-9m-gXu"/>
@@ -1286,15 +1331,15 @@ Calendar</string>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0F-0m-ctk">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" editable="NO" text="We never store your iCloud credentials or send it to our servers. See our Privacy Policy." translatesAutoresizingMaskIntoConstraints="NO" id="d0F-0m-ctk">
                                                 <rect key="frame" x="0.0" y="259" width="278" height="65"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" red="0.34901960780000002" green="0.75294117650000003" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="65" id="27g-ol-ubq"/>
                                                 </constraints>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="11"/>
+                                                <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                                 <connections>
@@ -1362,8 +1407,6 @@ Calendar</string>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="btnSignIn" destination="w6Z-WU-bbB" id="59x-qC-rfZ"/>
-                        <outlet property="lblName" destination="y0C-mS-yCP" id="KcD-b5-O5U"/>
                         <outlet property="lblTitle" destination="tLi-cD-Kxs" id="orY-tj-Ung"/>
                         <outlet property="spinner" destination="Y3g-Rc-Z2r" id="QEc-BA-dJs"/>
                         <outlet property="txfEmail" destination="rzy-cu-9t9" id="ae2-8B-eUL"/>
@@ -1425,7 +1468,9 @@ Calendar</string>
                                                     <constraint firstAttribute="width" constant="63" id="foJ-AW-H0b"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
-                                                <state key="normal" title="DONE"/>
+                                                <state key="normal" title="DONE">
+                                                    <color key="titleColor" red="0.0" green="0.80784313725490198" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="btnDone_Action:" destination="FB2-GF-zMu" eventType="touchUpInside" id="oo4-Sr-Hjt"/>
                                                 </connections>
@@ -1464,69 +1509,83 @@ Calendar</string>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ENTER YOUR NAME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIP-1l-RMU">
                                                 <rect key="frame" x="0.0" y="15" width="277" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="18"/>
+                                                <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="aLH-4L-rkb">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="FIRST NAME" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="aLH-4L-rkb" customClass="DSTextField" customModule="Dials" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="42" width="277" height="63"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="63" id="J3V-BG-MN5"/>
                                                     <constraint firstAttribute="width" constant="277" id="txn-Na-Xoz"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="26"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="FB2-GF-zMu" id="ccz-cc-riN"/>
                                                 </connections>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yB1-MM-mDc">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yB1-MM-mDc" customClass="DSButton" customModule="Dials" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="192" width="277" height="60"/>
+                                                <color key="backgroundColor" red="0.34901960784313724" green="0.75294117647058822" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="MIV-Us-JNa"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="20"/>
+                                                <color key="tintColor" red="0.34901960780000002" green="0.75294117650000003" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="START USING DIALS">
+                                                    <color key="titleColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="btnStartDials_Action:" destination="FB2-GF-zMu" eventType="touchUpInside" id="zox-bo-69k"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zyZ-de-scK">
                                                 <rect key="frame" x="0.0" y="43" width="277" height="1"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="BP0-PH-703"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLz-tJ-aSM">
                                                 <rect key="frame" x="0.0" y="105" width="277" height="1"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="fDR-oK-Xzn"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNk-I0-7ds">
                                                 <rect key="frame" x="0.0" y="169" width="277" height="1"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="PQt-Jx-HgL"/>
                                                 </constraints>
                                             </view>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="mEa-bh-bqM">
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="mEa-bh-bqM">
                                                 <rect key="frame" x="249" y="64" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="9AT-gR-4xU"/>
                                                     <constraint firstAttribute="width" constant="20" id="RNt-Tq-7YW"/>
                                                 </constraints>
                                             </activityIndicatorView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="cQd-vD-4wa">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LAST NAME" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="cQd-vD-4wa" customClass="DSTextField" customModule="Dials" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="105" width="277" height="63"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="63" id="TpA-cQ-MFT"/>
                                                     <constraint firstAttribute="width" constant="277" id="uEl-Ah-sMn"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="26"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="FB2-GF-zMu" id="c1C-tO-Afs"/>
@@ -1567,14 +1626,14 @@ Calendar</string>
                                             <constraint firstAttribute="trailing" secondItem="aLH-4L-rkb" secondAttribute="trailing" constant="-10" id="zKY-to-UMt"/>
                                         </constraints>
                                     </view>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="By continuing you agree to our Terms of Service and Privacy Policy." translatesAutoresizingMaskIntoConstraints="NO" id="irt-0s-e4i">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" editable="NO" text="By continuing you agree to our Terms of Service and Privacy Policy." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="irt-0s-e4i">
                                         <rect key="frame" x="20" y="280" width="280" height="45"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="tintColor" red="1" green="0.24991704319999999" blue="0.27704892219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.34901960780000002" green="0.75294117650000003" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="EP2-D8-qBt"/>
                                         </constraints>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <connections>
@@ -1606,17 +1665,12 @@ Calendar</string>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="btnDone" destination="PIE-U1-wOr" id="3YZ-pE-Fqz"/>
-                        <outlet property="btnStartDials" destination="yB1-MM-mDc" id="lDG-oe-2bx"/>
-                        <outlet property="lblEnterName" destination="wIP-1l-RMU" id="ml2-FH-NDL"/>
                         <outlet property="lblTitle" destination="YqI-s8-cSH" id="ayi-ns-c6d"/>
                         <outlet property="spinner" destination="mEa-bh-bqM" id="ScO-0F-MVS"/>
                         <outlet property="txfFirstName" destination="aLH-4L-rkb" id="Fu0-ih-M3g"/>
                         <outlet property="txfLastName" destination="cQd-vD-4wa" id="iJr-uv-Y4V"/>
                         <outlet property="txvPrivacyPolicy" destination="irt-0s-e4i" id="6JK-QD-CR4"/>
-                        <outlet property="viewLineBorderBottom" destination="bNk-I0-7ds" id="BQi-3Z-lg4"/>
-                        <outlet property="viewLineBorderMiddle" destination="PLz-tJ-aSM" id="q7C-vD-irS"/>
-                        <outlet property="viewLineBorderTop" destination="zyZ-de-scK" id="CTj-E4-tmU"/>
+                        <outlet property="viewTopBar" destination="AN6-Qf-BHH" id="iig-cJ-lv1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DZk-yq-Loo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1697,7 +1751,6 @@ Calendar</string>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="btnBack" destination="yht-KG-nRn" id="f8v-eh-hy1"/>
                         <outlet property="webView" destination="Kgl-Ae-hgo" id="6D7-5t-ELC"/>
                     </connections>
                 </viewController>
