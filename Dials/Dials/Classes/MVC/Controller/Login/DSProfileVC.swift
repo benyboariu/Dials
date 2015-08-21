@@ -119,6 +119,32 @@ class DSProfileVC: DSBaseVC, UITextViewDelegate {
     
     // MARK: - API Methods
     
+    func updateUser_APICall() {
+        if let user = appDelegate.curUser {
+            var dictParams              = [String: AnyObject]()
+            
+            dictParams["id"]            = user.u_id
+            
+            dictParams["phone"]         = user.u_phone
+            
+            dictParams["firstName"]     = txfFirstName.text
+            dictParams["lastName"]      = txfLastName.text
+            
+            appDelegate.dsAPIManager.updateUser(dictParams, completion: { (success, error, JSON, user) -> Void in
+                if let user = user {
+                    appDelegate.defaults.setObject(user.u_id, forKey: Constants.UserDefaultsKey.LoggedInUserID)
+                    appDelegate.defaults.synchronize()
+                    
+                    
+                    
+                    self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                        
+                    })
+                }
+            })
+        }
+    }
+    
     // MARK: - Action Methods
     
     @IBAction func btnBack_Action(sender: AnyObject) {
@@ -126,16 +152,16 @@ class DSProfileVC: DSBaseVC, UITextViewDelegate {
     }
     
     @IBAction func btnStartDials_Action(sender: AnyObject) {
+        updateUser_APICall()
     }
     
     @IBAction func btnDone_Action(sender: AnyObject) {
+        updateUser_APICall()
     }
     
     // MARK: - UITextViewDelegate Methods
     
     func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool {
-        
-        
          let termsAndPrivacyVC = appDelegate.storyboardLogin.instantiateViewControllerWithIdentifier("DSTermsAndPrivacyVC") as! DSTermsAndPrivacyVC
         
          let stringScheme = URL.scheme

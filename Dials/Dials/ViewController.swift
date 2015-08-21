@@ -16,7 +16,7 @@ class ViewController: UIViewController, DSDialViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        checkVersion()
+        appDelegate.getCalendarsAndEvents()
 
         viewDial.delegate       = self
     }

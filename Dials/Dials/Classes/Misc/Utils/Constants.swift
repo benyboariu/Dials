@@ -13,6 +13,10 @@ struct Constants {
         static let Welcome = "kWelcomeNotif"
     }
     
+    struct UserDefaultsKey {
+        static let LoggedInUserID   = "Logged in userID"
+    }
+    
     struct Sizes {
         static let EventView        = 55.0
         static let EventEndView     = 45.0

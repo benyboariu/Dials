@@ -22,11 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return storyboard
         }()
     
+    let defaults                = NSUserDefaults.standardUserDefaults()
+    
     //>     Creating an Instance of the Alamofire Manager
-    var manager = Alamofire.Manager.sharedInstance
+    var manager                 = Alamofire.Manager.sharedInstance
     
     //>     Creating an Instance of the DialsSyncManager
-    let dsAPIManager                = DSAPIManager()
+    let dsAPIManager            = DSAPIManager()
     
     var realm: Realm!
     
@@ -39,6 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Easily see where the realm database is located so we can open it with the Realm Browser
         print(self.realm.path, appendNewline: true)
+        
+        loadCurUser()
         
         return true
     }
@@ -72,12 +76,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         defaultHeaders["Content-Type"]      = "application/json"
         defaultHeaders["Accept"]            = "application/vnd.dials.v1+json"
         
-        let configuration       = NSURLSessionConfiguration.defaultSessionConfiguration()
+        if let user = curUser {
+            defaultHeaders["Authorization"]     = user.u_accessToken
+        }
+        
+        let configuration                   = NSURLSessionConfiguration.defaultSessionConfiguration()
         configuration.HTTPAdditionalHeaders = defaultHeaders
         
-        self.manager            = Alamofire.Manager(configuration: configuration)
+        self.manager                        = Alamofire.Manager(configuration: configuration)
     }
 
+    func loadCurUser() {
+        if let strID = defaults.objectForKey(Constants.UserDefaultsKey.LoggedInUserID) as? String {
+            let predicate                   = NSPredicate(format: "u_id = %@", strID)
+            if let user = appDelegate.realm.objects(User).filter(predicate).first {
+                appDelegate.curUser         = user
+            }
+        }
+    }
+    
+    func getCalendarsAndEvents() {
+        if let user = curUser {
+            let arrAccounts                 = user.toAccount
+            
+            for account in arrAccounts {
+                self.dsAPIManager.getCalendarsForAccount(account, completion: { (success, error, JSON, calendar) -> Void in
+                    let arrCalendars        = account.toCalendar
+                    
+                    for calendar in arrCalendars {
+                        self.dsAPIManager.getEventsForCalendar(calendar, completion: { (success, error, JSON, user) -> Void in
+                            
+                        })
+                    }
+                })
+            }
+        }
+    }
 }
 
 // MARK: - Convenience Constructors

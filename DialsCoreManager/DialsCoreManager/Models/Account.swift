@@ -30,7 +30,11 @@ public class Account: Object {
     public dynamic var ac_userID = ""
     public dynamic var ac_email = ""
     
-    public dynamic var toUser: User?
+    public var toUser: User {
+        return linkingObjects(User.self, forProperty: "toAccount").first!
+    }
+    
+    public let toCalendar = List<Calendar>()
     
     public override static func primaryKey() -> String? {
         return "ac_id"
@@ -45,29 +49,37 @@ public class Account: Object {
     // MARK: - Custom Methods
     
     func addEditAccountWithDictionary(dictData: [String: AnyObject]) -> Account {
-        let realm           = try! Realm()
+        //let realm           = try! Realm()
         
         let account         = Account()
         
-        if let strID = dictData["ac_id"] as? String {
-            account.ac_id           = strID
+        if let obj = dictData["ac_id"] as? String {
+            account.ac_id               = obj
         }
         
-        if let strEmail = dictData["ac_email"] as? String  {
-            account.ac_email        = strEmail
+        if let obj = dictData["ac_email"] as? String  {
+            account.ac_email            = obj
         }
         
-        if let strType = dictData["ac_type"] as? String  {
-            account.ac_type         = strType
+        if let obj = dictData["ac_type"] as? String  {
+            account.ac_type             = obj
         }
         
-        if let strProvider = dictData["ac_provider"] as? String  {
-            account.ac_provider     = strProvider
+        if let obj = dictData["ac_provider"] as? String  {
+            account.ac_provider         = obj
         }
         
-        realm.write { () -> Void in
+        if let obj = dictData["ac_accessToken"] as? String  {
+            account.ac_accessToken      = obj
+        }
+        
+        if let obj = dictData["ac_refreshToken"] as? String  {
+            account.ac_refreshToken     = obj
+        }
+        
+        /*realm.write { () -> Void in
             realm.add(account, update: true)
-        }
+        }*/
         
         return account
     }

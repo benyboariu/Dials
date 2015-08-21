@@ -17,7 +17,7 @@ public class User: Object {
     public dynamic var u_phone = ""
     public dynamic var u_smsCode = ""
     
-    let toAccount = List<Account>()
+    public let toAccount = List<Account>()
     
     public var u_name: String {
         return "\(u_firstName) \(u_lastName)"
@@ -27,9 +27,9 @@ public class User: Object {
         return "u_id"
     }
     
-    public override static func ignoredProperties() -> [String] {
+    /*public override static func ignoredProperties() -> [String] {
         return ["u_name"]
-    }
+    }*/
     
     // MARK: - Custom Methods
     

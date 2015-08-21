@@ -22,7 +22,7 @@ class DSLandingVC: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if user == false {
+        if let _ = appDelegate.curUser {
             showDialsVC()
         }
         else {

@@ -151,6 +151,8 @@ class DSPhoneVerificationVC: DSBaseVC, DSPopoverVCDelegate, WYPopoverControllerD
                 if success {
                     if let user = user {
                         appDelegate.curUser     = user
+                        
+                        appDelegate.dsAPIManager.setupAlamofireManager(user)
                     }
                     
                     let confirmPhoneVC          = appDelegate.storyboardLogin.instantiateViewControllerWithIdentifier("DSConfirmPhoneVC") as! DSConfirmPhoneVC

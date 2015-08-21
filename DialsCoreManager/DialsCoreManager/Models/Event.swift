@@ -21,6 +21,10 @@ public class Event: Object {
     public dynamic var e_endDate = NSDate()
     public dynamic var e_type = EventType.kEventTypeTask.rawValue
     
+    public var toCalendar: Calendar {
+        return linkingObjects(Calendar.self, forProperty: "toEvent").first!
+    }
+    
     public override static func primaryKey() -> String? {
         return "e_id"
     }

@@ -18,8 +18,25 @@ public class DSAPIManager {
     var manager = Alamofire.Manager.sharedInstance
     
     public init() {
-        setupAlamofireManager()
+        setupAlamofireManager(nil)
     }
+    
+    public func setupAlamofireManager(user: User?) {
+        var defaultHeaders                  = Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders ?? [:]
+        defaultHeaders["Content-Type"]      = "application/json"
+        defaultHeaders["Accept"]            = "application/vnd.dials.v1+json"
+        
+        if let user = user {
+            defaultHeaders["Authorization"]     = user.u_accessToken
+        }
+        
+        let configuration                   = NSURLSessionConfiguration.defaultSessionConfiguration()
+        configuration.HTTPAdditionalHeaders = defaultHeaders
+        
+        self.manager                        = Alamofire.Manager(configuration: configuration)
+    }
+    
+    // MARK: - USER API
     
     public func canRunVersion(strVersion: String) -> Bool {
         if strVersion == "1" {
@@ -78,14 +95,21 @@ public class DSAPIManager {
                                 dictAccount["ac_type"]          = AccountType.Dials.rawValue
                                 dictAccount["ac_provider"]      = AccountProvider.Dials.rawValue
                                 dictAccount["ac_email"]         = strEmail
+                                dictAccount["ac_accessToken"]   = user.u_accessToken
                                 
                                 let account                     = Account().addEditAccountWithDictionary(dictAccount)
                                 
                                 let realm                       = try! Realm()
                                 realm.write({ () -> Void in
+                                    realm.add(account, update: true)
                                     user.toAccount.append(account)
-                                    account.toUser              = user
                                 })
+                                
+                                if let dictDialsapp = dictResponse["dialsapp"] as? [String: AnyObject] {
+                                    if let dictCalendars = dictDialsapp["calendars"] as? [String: AnyObject] {
+                                        DSSyncManager.saveCalendars(dictCalendars, forAccount: account)
+                                    }
+                                }
                             }
                         }
                         
@@ -124,13 +148,14 @@ public class DSAPIManager {
                                 dictAccount["ac_type"]          = AccountType.Dials.rawValue
                                 dictAccount["ac_provider"]      = AccountProvider.Dials.rawValue
                                 dictAccount["ac_email"]         = strEmail
+                                dictAccount["ac_accessToken"]   = user.u_accessToken
                                 
                                 let account                     = Account().addEditAccountWithDictionary(dictAccount)
                                 
                                 let realm                       = try! Realm()
                                 realm.write({ () -> Void in
+                                    realm.add(account, update: true)
                                     user.toAccount.append(account)
-                                    account.toUser              = user
                                 })
                             }
                         }
@@ -140,6 +165,55 @@ public class DSAPIManager {
                 }
                 
             })
+    }
+    
+    public func updateUser(dictParams: [String: AnyObject], completion: (success: Bool, error: String?, JSON: AnyObject?, user: User?) -> Void) {
+        if let strID = dictParams["id"] {
+            let strURL                      = buildURLWithEndpoint("/users/\(strID)")
+            
+            self.manager
+                .request(.PUT, strURL, parameters: dictParams, encoding: .JSON)
+                .responseJSON(completionHandler: { (request, response, JSON) -> Void in
+                    print(JSON.value, appendNewline: true)
+                    
+                    if let dictResponse = JSON.value as? [String: AnyObject] {
+                        if dictResponse["active"] == nil {
+                            if let strError = dictResponse["err"] as? String {
+                                completion(success: false, error: strError, JSON: nil, user: nil)
+                            }
+                            else {
+                                completion(success: false, error: nil, JSON: nil, user: nil)
+                            }
+                        }
+                        else {
+                            let user = User().addEditUserWithDictionary(dictResponse)
+                            
+                            if let dictLocal = dictResponse["local"] as? [String: AnyObject] {
+                                if let strEmail = dictLocal["email"] as? String {
+                                    var dictAccount                 = [String: AnyObject]()
+                                    
+                                    dictAccount["ac_id"]            = strEmail;
+                                    dictAccount["ac_type"]          = AccountType.Dials.rawValue
+                                    dictAccount["ac_provider"]      = AccountProvider.Dials.rawValue
+                                    dictAccount["ac_email"]         = strEmail
+                                    dictAccount["ac_accessToken"]   = user.u_accessToken
+                                    
+                                    let account                     = Account().addEditAccountWithDictionary(dictAccount)
+                                    
+                                    let realm                       = try! Realm()
+                                    realm.write({ () -> Void in
+                                        realm.add(account, update: true)
+                                        user.toAccount.append(account)
+                                    })
+                                }
+                            }
+                            
+                            completion(success: true, error: nil, JSON: JSON.value!,  user: user)
+                        }
+                    }
+                    
+                })
+        }
     }
     
     public func requestSMSToken(phone: String, completion: (success: Bool, error: String?, JSON: AnyObject?) -> Void) {
@@ -182,18 +256,78 @@ public class DSAPIManager {
         }
     }
     
-    // MARK: - Private Methods
+    // MARK: - DIALS API
     
-    func setupAlamofireManager() {
-        var defaultHeaders                  = Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders ?? [:]
-        defaultHeaders["Content-Type"]      = "application/json"
-        defaultHeaders["Accept"]            = "application/vnd.dials.v1+json"
-        
-        let configuration                   = NSURLSessionConfiguration.defaultSessionConfiguration()
-        configuration.HTTPAdditionalHeaders = defaultHeaders
-        
-        self.manager                        = Alamofire.Manager(configuration: configuration)
+    public func getCalendarsForAccount(account: Account?, completion: (success: Bool, error: String?, JSON: AnyObject?, calendar: Calendar?) -> Void) {
+        if let account = account {
+            let user        = account.toUser
+            
+            let strEmail    = DSUtils.urlEncodeUsingEncoding(account.ac_email)!
+            
+            let strURL      = buildURLWithEndpoint("/users/\(user.u_id)/calendars/\(account.ac_provider)?email=\(strEmail)")
+            
+            var dictHeaders                     = [String: String]()
+            dictHeaders["Authorization"]        = user.u_accessToken
+            dictHeaders["x-cal-authtoken"]      = account.ac_accessToken
+            
+            self.manager
+                .request(.GET, strURL, parameters: nil, encoding: .JSON, headers: dictHeaders)
+                .responseJSON(completionHandler: { (request, response, JSON) -> Void in
+                    print(JSON.value, appendNewline: true)
+                    
+                    if let dictResponse = JSON.value as? [String: AnyObject] {
+                        if let strError = dictResponse["err"] as? String {
+                            completion(success: false, error: strError, JSON: nil, calendar: nil)
+                        }
+                        else {
+                            if let dictCalendars = dictResponse["calendars"] as? [String: AnyObject] {
+                                DSSyncManager.saveCalendars(dictCalendars, forAccount: account)
+                            }
+                            
+                            completion(success: true, error: nil, JSON: JSON.value!,  calendar: nil)
+                        }
+                    }
+                })
+        }
     }
+    
+    public func getEventsForCalendar(calendar: Calendar?, completion: (success: Bool, error: String?, JSON: AnyObject?, user: User?) -> Void) {
+        if let calendar = calendar {
+            let account     = calendar.toAccount
+            let user        = account.toUser
+            
+            let strEmail    = DSUtils.urlEncodeUsingEncoding(account.ac_email)!
+            let strCalID    = DSUtils.urlEncodeUsingEncoding(calendar.c_id)!
+            let strStart    = DSUtils.getStartDate()
+            let strEnd      = DSUtils.getEndDate()
+            let strURL      = buildURLWithEndpoint("/users/\(user.u_id)/calendars/\(account.ac_provider)/\(strCalID)/events?startDate=\(strStart)&endDate=\(strEnd)&email=\(strEmail)")
+            
+            var dictHeaders                     = [String: String]()
+            dictHeaders["Authorization"]        = user.u_accessToken
+            dictHeaders["x-cal-authtoken"]      = account.ac_accessToken
+            
+            self.manager
+                .request(.GET, strURL, parameters: nil, encoding: .JSON, headers: dictHeaders)
+                .responseJSON(completionHandler: { (request, response, JSON) -> Void in
+                    print(JSON.value, appendNewline: true)
+                    
+                    if let dictResponse = JSON.value as? [String: AnyObject] {
+                        if let strError = dictResponse["err"] as? String {
+                            completion(success: false, error: strError, JSON: nil, user: nil)
+                        }
+                        else {
+                            if let dictCalendars = dictResponse["calendars"] as? [String: AnyObject] {
+                                DSSyncManager.saveCalendars(dictCalendars, forAccount: account)
+                            }
+                            
+                            completion(success: true, error: nil, JSON: JSON.value!,  user: user)
+                        }
+                    }
+                })
+        }
+    }
+    
+    // MARK: - Private Methods
     
     func buildURLWithEndpoint(endpoint: String) -> String {
         
@@ -210,6 +344,8 @@ public class DSAPIManager {
         }
         
         let strURL = "\(url)\(endpoint)"
+        
+        print("\nAPI Request: \(strURL)\n", appendNewline: true)
         
         return strURL
     }
