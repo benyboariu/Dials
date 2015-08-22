@@ -11,17 +11,7 @@ import UIKit
 class DSConfirmPhoneVC: DSBaseVC, UITextFieldDelegate {
 
     //IBOutlet
-    
-    @IBOutlet var txfNuber: UITextField!
-    
-    @IBOutlet var btnSingIn: UIButton!
-    @IBOutlet var btnResendCode: UIButton!
-    
-    @IBOutlet var lblEnterCode: UILabel!
-    
-    @IBOutlet var viewLineBorderTop: UIView!
-    @IBOutlet var viewLineBorderBottom: UIView!
-    
+    @IBOutlet var txfNuber: UITextField!    
     @IBOutlet var spinner: UIActivityIndicatorView!
     
     var strPhone: String?
@@ -31,34 +21,15 @@ class DSConfirmPhoneVC: DSBaseVC, UITextFieldDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        setup()
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        txfNuber.becomeFirstResponder()
+    }
     
     // MARK: - Custom Methods
-    func setup() {
-        
-        txfNuber.font = UIFont.proximaMediumOfSize(26.0)
-        txfNuber.textColor = UIColor.dialsWhite()
-        txfNuber.becomeFirstResponder()
-        
-        btnSingIn.titleLabel?.font = UIFont.proximaBoldOfSize(20.0)
-        btnSingIn.backgroundColor = UIColor.dialsBlue()
-        btnSingIn.layer.borderWidth = 1
-        btnSingIn.layer.cornerRadius = 6
-        btnSingIn.setTitleColor(UIColor.dialsWhite(), forState: UIControlState.Normal)
-        
-        btnResendCode.titleLabel?.font = UIFont.proximaMediumOfSize(14.0)
-        btnResendCode.setTitleColor(UIColor.dialsBlueAlt(), forState: UIControlState.Normal)
-        
-        lblEnterCode.font = UIFont.proximaBoldOfSize(18.0)
-        lblEnterCode.textColor = UIColor.dialsWhite()
-        
-        viewLineBorderBottom.backgroundColor = UIColor.darkGrayColor()
-        viewLineBorderTop.backgroundColor = UIColor.darkGrayColor()
-        
-        spinner.hidden = true
-    }
     
     func pushToNextVC() {
         let importCalendarsVC = appDelegate.storyboardLogin.instantiateViewControllerWithIdentifier("DSImportCalendarsVC") as! DSImportCalendarsVC

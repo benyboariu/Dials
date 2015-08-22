@@ -22,22 +22,16 @@ class DSEmailAuthVC: DSBaseVC, UITextFieldDelegate {
     @IBOutlet var btnForgotPassword: UIButton!
     @IBOutlet var btnCreate: UIButton!
     @IBOutlet var btnLogin: UIButton!
-    @IBOutlet var btnCreateAccount: UIButton!
+    @IBOutlet var btnCreateAccount: DSButton!
     
-    @IBOutlet var txfUsername: UITextField!
-    @IBOutlet var txfPassword: UITextField!
-    
-    @IBOutlet var viewLineBorder: UIView!
-    @IBOutlet var viewLineBorderUp: UIView!
-    @IBOutlet var viewLineBorderMiddle: UIView!
-    @IBOutlet var viewLineBorderBottom: UIView!
+    @IBOutlet var txfUsername: DSTextField!
+    @IBOutlet var txfPassword: DSTextField!
     
     // MARK: - ViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        setup()
         self.txfUsername.text               = "beny@liftoffllc.com"
         self.txfPassword.text               = "qwertyu"
     }
@@ -51,52 +45,12 @@ class DSEmailAuthVC: DSBaseVC, UITextFieldDelegate {
     // MARK: - Public Methods
     
     // MARK: - Custom Methods
-    func setup() {
-        
-        btnForgotPassword.titleLabel?.font         = UIFont.proximaBoldOfSize(12.0)
-        btnForgotPassword.setTitleColor(UIColor.dialsBlue(), forState: UIControlState.Normal)
-        
-        btnCreate.titleLabel?.font                 = UIFont.proximaBoldOfSize(16.0)
-        btnCreate.setTitleColor(UIColor.dialsBlue(), forState: UIControlState.Normal)
-        
-        btnLogin.titleLabel?.font                  = UIFont.proximaBoldOfSize(16.0)
-        btnLogin.setTitleColor(UIColor.dialsDarkGrey(), forState: UIControlState.Normal)
-        
-        btnCreateAccount.titleLabel?.font          = UIFont.proximaBoldOfSize(20.0)
-        btnCreateAccount.backgroundColor           = UIColor.dialsBlueAlt()
-        btnCreateAccount.layer.borderWidth         = 1
-        btnCreateAccount.layer.cornerRadius        = 6
-        btnCreateAccount.setTitleColor(UIColor.dialsWhite(), forState: UIControlState.Normal)
-        
-        viewLineBorder.backgroundColor             = UIColor.dialsDarkGrey()
-        viewLineBorderUp.backgroundColor           = UIColor.dialsDarkGrey()
-        viewLineBorderMiddle.backgroundColor       = UIColor.dialsDarkGrey()
-        viewLineBorderBottom.backgroundColor       = UIColor.dialsDarkGrey()
-        
-        
-        let color                                  = UIColor.dialsDarkGrey()
-        
-        txfUsername.font                           = UIFont.proximaMediumOfSize(26.0)
-        txfUsername.textColor                      = UIColor.dialsWhite()
-        txfUsername.attributedPlaceholder          = NSAttributedString(string: "EMAIL ADDRESS", attributes: [NSForegroundColorAttributeName : color])
-        
-        txfPassword.font                           = UIFont.proximaMediumOfSize(26.0)
-        txfPassword.textColor                      = UIColor.dialsWhite()
-        txfPassword.attributedPlaceholder          = NSAttributedString(string: "PASSWORD", attributes: [NSForegroundColorAttributeName : color])
-        txfPassword.secureTextEntry                = true
-        
-        lblPassMustBe.font                         = UIFont.proximaMediumOfSize(12.0)
-        lblPassMustBe.textColor                    = UIColor.dialsWhite()
-        
-        btnForgotPassword.hidden                   = true
-    }
     
     func pushToPhoneVerification(dictParams: [String: AnyObject]) {
         let phoneVC                 = appDelegate.storyboardLogin.instantiateViewControllerWithIdentifier("DSPhoneVerificationVC") as! DSPhoneVerificationVC
         phoneVC.dictParams          = dictParams
         self.navigationController?.pushViewController(phoneVC, animated: true)
     }
-    
     
     // MARK: - API Methods
     
@@ -153,13 +107,11 @@ class DSEmailAuthVC: DSBaseVC, UITextFieldDelegate {
     
     @IBAction func btnCreate_Action(sender: AnyObject) {
         
-        btnCreate.titleLabel?.font     = UIFont.proximaBoldOfSize(16.0)
         btnCreate.setTitleColor(UIColor.dialsBlue(), forState: UIControlState.Normal)
         
         btnCreateAccount.setTitle("CREATE ACCOUNT", forState: UIControlState.Normal)
         lblTitleTopBar.text            = "CREATE ACCOUNT"
         
-        btnLogin.titleLabel?.font      = UIFont.proximaBoldOfSize(16.0)
         btnLogin.setTitleColor(UIColor.dialsDarkGrey(), forState: UIControlState.Normal)
         
         btnForgotPassword.hidden       = true
@@ -168,14 +120,12 @@ class DSEmailAuthVC: DSBaseVC, UITextFieldDelegate {
     }
     
     @IBAction func btnLogin_Action(sender: AnyObject) {
-        
-        btnCreate.titleLabel?.font     = UIFont.proximaBoldOfSize(16.0)
+
         btnCreate.setTitleColor(UIColor.dialsDarkGrey(), forState: UIControlState.Normal)
         
         btnCreateAccount.setTitle("LOGIN TO DIALS", forState: UIControlState.Normal)
         lblTitleTopBar.text            = "ACCOUNT LOGIN"
         
-        btnLogin.titleLabel?.font      = UIFont.proximaBoldOfSize(16.0)
         btnLogin.setTitleColor(UIColor.dialsBlue(), forState: UIControlState.Normal)
         
         btnForgotPassword.hidden       = false
@@ -256,9 +206,7 @@ class DSEmailAuthVC: DSBaseVC, UITextFieldDelegate {
         }
         return true
     }
-    
-    
-    
+
     // MARK: - Memory Management Methods
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

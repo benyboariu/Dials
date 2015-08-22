@@ -10,9 +10,7 @@ import UIKit
 
 class DSImportCalendarsVC: DSBaseVC {
 
-    var isiCloadConected: Bool = false
-    var isGoogleConected: Bool = false
-    
+    // IBOutlet
     @IBOutlet var btnSkip: UIButton!
     
     @IBOutlet var btniCloud: UIButton!
@@ -25,6 +23,9 @@ class DSImportCalendarsVC: DSBaseVC {
     
     @IBOutlet var imgViewPhone: UIImageView!
     
+    var isiCloadConected: Bool = false
+    var isGoogleConected: Bool = false
+    
     // MARK: - ViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,6 @@ class DSImportCalendarsVC: DSBaseVC {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
         
     }
 

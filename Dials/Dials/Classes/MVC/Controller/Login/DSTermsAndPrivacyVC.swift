@@ -10,8 +10,8 @@ import UIKit
 
 class DSTermsAndPrivacyVC: UIViewController {
 
+    // IBOutlet
     @IBOutlet var webView: UIWebView!
-    @IBOutlet var btnBack: UIButton!
     
     var isTerms: Bool?
     
@@ -20,7 +20,7 @@ class DSTermsAndPrivacyVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        updateUI()
+
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -36,18 +36,9 @@ class DSTermsAndPrivacyVC: UIViewController {
                 webView.loadRequest(NSURLRequest(URL: url))
             }
         }
-        
-        
-        print(isTerms, appendNewline: true)
     }
     
     // MARK: - Custom Methods
-    
-    func updateUI() {
-        btnBack.titleLabel?.font = UIFont.proximaMediumOfSize(12.0)
-        btnBack.setTitleColor(UIColor.dialsBlueAlt(), forState: UIControlState.Normal)
-    }
-    
     
     // MARK: -Action Methods
     @IBAction func btnBack_Action(sender: AnyObject) {
@@ -55,8 +46,6 @@ class DSTermsAndPrivacyVC: UIViewController {
         
     }
 
-    
-    
     // MARK: - memory Management Methods
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B5D31B641B832C530079807E /* DSiCloudLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D31B631B832C530079807E /* DSiCloudLoginVC.swift */; };
 		B5D31B691B83A0C00079807E /* Environment.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5D31B681B83A0C00079807E /* Environment.plist */; };
+		B5ED69DA1B87664700432A27 /* DSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ED69D91B87664700432A27 /* DSTextField.swift */; };
+		B5ED69DE1B876AF800432A27 /* DSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ED69DD1B876AF800432A27 /* DSButton.swift */; };
 		B70A38261B78BB39004CB7C8 /* DSDialEventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B70A38251B78BB39004CB7C8 /* DSDialEventView.xib */; };
 		B70F16721B768652001263A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F16711B768652001263A8 /* AppDelegate.swift */; };
 		B70F16741B768652001263A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F16731B768652001263A8 /* ViewController.swift */; };
@@ -117,6 +119,8 @@
 		6F26AAAAFBD743BE2C79CDD9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B5D31B631B832C530079807E /* DSiCloudLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSiCloudLoginVC.swift; sourceTree = "<group>"; };
 		B5D31B681B83A0C00079807E /* Environment.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Environment.plist; sourceTree = "<group>"; };
+		B5ED69D91B87664700432A27 /* DSTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSTextField.swift; path = Dials/Classes/MVC/View/DSTextField.swift; sourceTree = SOURCE_ROOT; };
+		B5ED69DD1B876AF800432A27 /* DSButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSButton.swift; sourceTree = "<group>"; };
 		B70A38251B78BB39004CB7C8 /* DSDialEventView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSDialEventView.xib; sourceTree = "<group>"; };
 		B70F166E1B768652001263A8 /* Dials.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dials.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B70F16711B768652001263A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -315,6 +319,8 @@
 		B70F16A51B76876F001263A8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B5ED69DD1B876AF800432A27 /* DSButton.swift */,
+				B5ED69D91B87664700432A27 /* DSTextField.swift */,
 				B70F17021B787D70001263A8 /* DSDialView.swift */,
 				B70F17071B787DF5001263A8 /* DSDialEventView.swift */,
 				B70A38251B78BB39004CB7C8 /* DSDialEventView.xib */,
@@ -685,6 +691,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5ED69DE1B876AF800432A27 /* DSButton.swift in Sources */,
 				B71D5A1F1B78C94400B7EDE4 /* UIColor+Utils.swift in Sources */,
 				B7F4AF1C1B7FDB800026D1B9 /* DSLandingVC.swift in Sources */,
 				B7F4AF191B7FD9A50026D1B9 /* DSTermsAndPrivacyVC.swift in Sources */,
@@ -704,6 +711,7 @@
 				B745F6151B78F2D700815493 /* Constants.swift in Sources */,
 				B70F17011B76C1A4001263A8 /* AngleGradientBorderView.swift in Sources */,
 				B70F17081B787DF5001263A8 /* DSDialEventView.swift in Sources */,
+				B5ED69DA1B87664700432A27 /* DSTextField.swift in Sources */,
 				B70F17031B787D70001263A8 /* DSDialView.swift in Sources */,
 				B7F4AF171B7FD9A50026D1B9 /* DSPhoneVerificationVC.swift in Sources */,
 				B71D5A211B78C94400B7EDE4 /* UIView+Utils.swift in Sources */,
