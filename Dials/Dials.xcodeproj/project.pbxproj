@@ -863,6 +863,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dante Orpilla (L3EE762342)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -870,8 +871,9 @@
 				);
 				INFOPLIST_FILE = Dials/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dialsapp.Dials;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dialsapp.mobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "596ffb0d-b127-4beb-90b7-ffec487a5170";
 				SWIFT_OBJC_BRIDGING_HEADER = "Dials/Dials-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -883,6 +885,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dante Orpilla (L3EE762342)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -890,8 +893,9 @@
 				);
 				INFOPLIST_FILE = Dials/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dialsapp.Dials;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dialsapp.mobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "596ffb0d-b127-4beb-90b7-ffec487a5170";
 				SWIFT_OBJC_BRIDGING_HEADER = "Dials/Dials-Bridging-Header.h";
 			};
 			name = Release;

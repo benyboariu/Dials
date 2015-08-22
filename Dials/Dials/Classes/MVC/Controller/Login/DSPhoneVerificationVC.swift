@@ -8,7 +8,7 @@
 
 import UIKit
 import WYPopoverController
-import DialsSyncManager
+import DialsCoreManager
 
 class DSPhoneVerificationVC: DSBaseVC, DSPopoverVCDelegate, WYPopoverControllerDelegate {
     

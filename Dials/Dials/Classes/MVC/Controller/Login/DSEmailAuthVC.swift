@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-import DialsSyncManager
+import DialsCoreManager
 
 class DSEmailAuthVC: DSBaseVC, UITextFieldDelegate {
     
