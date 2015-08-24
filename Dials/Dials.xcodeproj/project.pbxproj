@@ -249,8 +249,8 @@
 		B70F16701B768652001263A8 /* Dials */ = {
 			isa = PBXGroup;
 			children = (
-				B70F16A11B76876F001263A8 /* Classes */,
 				B70F16EA1B76BC98001263A8 /* Libs */,
+				B70F16A11B76876F001263A8 /* Classes */,
 				B70F16711B768652001263A8 /* AppDelegate.swift */,
 				B7F4AF1B1B7FDB800026D1B9 /* DSLandingVC.swift */,
 				B70F16731B768652001263A8 /* ViewController.swift */,

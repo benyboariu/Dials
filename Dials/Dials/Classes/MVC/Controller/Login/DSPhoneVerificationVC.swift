@@ -32,8 +32,8 @@ class DSPhoneVerificationVC: DSBaseVC, DSPopoverVCDelegate, WYPopoverControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        txfPhone.text = "754823095"
-        //txfPhone.text = "753017120"
+        //txfPhone.text = "754823095"
+        txfPhone.text = "753017120"
 
         loadCountries()
     }

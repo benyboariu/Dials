@@ -27,7 +27,7 @@ public class DSSyncManager {
                 dictCalendar[Constants.Calendar.IsDefault]  = true
             }
             
-            let calendar        = Calendar().addEditCalendarWithDictionary(dictCalendar)
+            let calendar        = Calendar().addEditCalendarWithDictionary(dictCalendar, realm: realm)
             
             realm.write({ () -> Void in
                 account.toCalendar.append(calendar)

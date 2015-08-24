@@ -85,7 +85,9 @@ public class DSAPIManager {
                         }
                     }
                     else {
-                        let user = User().addEditUserWithDictionary(dictResponse)
+                        let realm               = try! Realm()
+                        
+                        let user                = User().addEditUserWithDictionary(dictResponse, realm: realm)
                         
                         if let dictLocal = dictResponse["local"] as? [String: AnyObject] {
                             if let strEmail = dictLocal["email"] as? String {
@@ -97,9 +99,8 @@ public class DSAPIManager {
                                 dictAccount["ac_email"]         = strEmail
                                 dictAccount["ac_accessToken"]   = user.u_accessToken
                                 
-                                let account                     = Account().addEditAccountWithDictionary(dictAccount)
+                                let account                     = Account().addEditAccountWithDictionary(dictAccount, realm: realm)
                                 
-                                let realm                       = try! Realm()
                                 realm.write({ () -> Void in
                                     realm.add(account, update: true)
                                     user.toAccount.append(account)
@@ -138,7 +139,9 @@ public class DSAPIManager {
                         }
                     }
                     else {
-                        let user = User().addEditUserWithDictionary(dictResponse)
+                        let realm               = try! Realm()
+                        
+                        let user                = User().addEditUserWithDictionary(dictResponse, realm: realm)
                         
                         if let dictLocal = dictResponse["local"] as? [String: AnyObject] {
                             if let strEmail = dictLocal["email"] as? String {
@@ -150,9 +153,8 @@ public class DSAPIManager {
                                 dictAccount["ac_email"]         = strEmail
                                 dictAccount["ac_accessToken"]   = user.u_accessToken
                                 
-                                let account                     = Account().addEditAccountWithDictionary(dictAccount)
+                                let account                     = Account().addEditAccountWithDictionary(dictAccount, realm: realm)
                                 
-                                let realm                       = try! Realm()
                                 realm.write({ () -> Void in
                                     realm.add(account, update: true)
                                     user.toAccount.append(account)
@@ -186,7 +188,9 @@ public class DSAPIManager {
                             }
                         }
                         else {
-                            let user = User().addEditUserWithDictionary(dictResponse)
+                            let realm               = try! Realm()
+                            
+                            let user                = User().addEditUserWithDictionary(dictResponse, realm: realm)
                             
                             if let dictLocal = dictResponse["local"] as? [String: AnyObject] {
                                 if let strEmail = dictLocal["email"] as? String {
@@ -198,9 +202,8 @@ public class DSAPIManager {
                                     dictAccount["ac_email"]         = strEmail
                                     dictAccount["ac_accessToken"]   = user.u_accessToken
                                     
-                                    let account                     = Account().addEditAccountWithDictionary(dictAccount)
+                                    let account                     = Account().addEditAccountWithDictionary(dictAccount, realm: realm)
                                     
-                                    let realm                       = try! Realm()
                                     realm.write({ () -> Void in
                                         realm.add(account, update: true)
                                         user.toAccount.append(account)

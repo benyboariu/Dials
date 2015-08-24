@@ -16,6 +16,10 @@
 		B72CA6521B83DAC400C4B5AC /* DSSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72CA6511B83DAC400C4B5AC /* DSSyncManager.swift */; };
 		B72CA6541B83DADD00C4B5AC /* DSAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72CA6531B83DADD00C4B5AC /* DSAPIManager.swift */; };
 		B72CA6711B83F57C00C4B5AC /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72CA6701B83F57C00C4B5AC /* Account.swift */; };
+		B745266B1B889AF7001F40C1 /* User+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B745266A1B889AF7001F40C1 /* User+Utils.swift */; };
+		B745266D1B889C77001F40C1 /* Account+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B745266C1B889C77001F40C1 /* Account+Utils.swift */; };
+		B745266F1B889C83001F40C1 /* Calendar+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B745266E1B889C83001F40C1 /* Calendar+Utils.swift */; };
+		B74526711B889C8C001F40C1 /* Event+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74526701B889C8C001F40C1 /* Event+Utils.swift */; };
 		B7726ED91B870DA700547573 /* DSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7726ED81B870DA700547573 /* DSUtils.swift */; };
 		B7726EDB1B87112800547573 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7726EDA1B87112800547573 /* Calendar.swift */; };
 /* End PBXBuildFile section */
@@ -43,6 +47,10 @@
 		B72CA6511B83DAC400C4B5AC /* DSSyncManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSSyncManager.swift; sourceTree = "<group>"; };
 		B72CA6531B83DADD00C4B5AC /* DSAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSAPIManager.swift; sourceTree = "<group>"; };
 		B72CA6701B83F57C00C4B5AC /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		B745266A1B889AF7001F40C1 /* User+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+Utils.swift"; sourceTree = "<group>"; };
+		B745266C1B889C77001F40C1 /* Account+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Account+Utils.swift"; sourceTree = "<group>"; };
+		B745266E1B889C83001F40C1 /* Calendar+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calendar+Utils.swift"; sourceTree = "<group>"; };
+		B74526701B889C8C001F40C1 /* Event+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event+Utils.swift"; sourceTree = "<group>"; };
 		B7726ED81B870DA700547573 /* DSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSUtils.swift; sourceTree = "<group>"; };
 		B7726EDA1B87112800547573 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,12 +125,24 @@
 		B72CA64B1B83DA5200C4B5AC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B74526691B889AC8001F40C1 /* Extensions */,
 				B72CA64E1B83DA8A00C4B5AC /* User.swift */,
 				B72CA6701B83F57C00C4B5AC /* Account.swift */,
 				B7726EDA1B87112800547573 /* Calendar.swift */,
 				B72CA64D1B83DA8A00C4B5AC /* Event.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B74526691B889AC8001F40C1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B745266A1B889AF7001F40C1 /* User+Utils.swift */,
+				B745266C1B889C77001F40C1 /* Account+Utils.swift */,
+				B745266E1B889C83001F40C1 /* Calendar+Utils.swift */,
+				B74526701B889C8C001F40C1 /* Event+Utils.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		B7726ED71B870D8300547573 /* Misc */ = {
@@ -243,10 +263,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B72CA6711B83F57C00C4B5AC /* Account.swift in Sources */,
+				B745266D1B889C77001F40C1 /* Account+Utils.swift in Sources */,
+				B74526711B889C8C001F40C1 /* Event+Utils.swift in Sources */,
 				B72CA6501B83DA8A00C4B5AC /* User.swift in Sources */,
+				B745266B1B889AF7001F40C1 /* User+Utils.swift in Sources */,
 				B72CA6541B83DADD00C4B5AC /* DSAPIManager.swift in Sources */,
 				B72CA64F1B83DA8A00C4B5AC /* Event.swift in Sources */,
 				B7726ED91B870DA700547573 /* DSUtils.swift in Sources */,
+				B745266F1B889C83001F40C1 /* Calendar+Utils.swift in Sources */,
 				B72CA6521B83DAC400C4B5AC /* DSSyncManager.swift in Sources */,
 				B7726EDB1B87112800547573 /* Calendar.swift in Sources */,
 				B72BC2BF1B871EEB00F5B69E /* Constants.swift in Sources */,
